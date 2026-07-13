@@ -40,6 +40,8 @@
         "zh-cn": "生命"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -100,6 +102,8 @@
         "zh-cn": "法力值"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -151,6 +155,8 @@
         "en": "Repeater -  Last  Prayer -  Explode on  Kill  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -202,6 +208,8 @@
         "en": "Splitshot -  Rare -  Increased  Damage and  Mana Cost  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -257,6 +265,8 @@
         "en": "Split  Shot -  Spearhead -  Pierce  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -317,6 +327,8 @@
         "zh-cn": "火焰伤害加成"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -377,6 +389,8 @@
         "zh-cn": "闪电伤害加成"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -437,6 +451,8 @@
         "zh-cn": "攻击速度"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -497,6 +513,8 @@
         "zh-cn": "冷却速度"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -557,6 +575,8 @@
         "zh-cn": "暴击几率"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -617,6 +637,8 @@
         "zh-cn": "暴击伤害"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -677,6 +699,8 @@
         "zh-cn": "基础伤害值"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -737,6 +761,8 @@
         "zh-cn": "经验值获取"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -797,6 +823,8 @@
         "zh-cn": "火焰抗性"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -857,6 +885,8 @@
         "zh-cn": "生命"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -917,6 +947,8 @@
         "zh-cn": "闪电抗性"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -977,6 +1009,8 @@
         "zh-cn": "法力值"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1037,6 +1071,8 @@
         "zh-cn": "移动速度"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1097,6 +1133,8 @@
         "zh-cn": "物理抗性"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1157,6 +1195,8 @@
         "zh-cn": "瘟疫抗性"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1208,6 +1248,8 @@
         "en": "Reflexes -  Blue  Calcite -  Lightning  Damage  Conversion  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1259,6 +1301,8 @@
         "en": "Shadow  Dash -  Skull of the  Vulture -  Explode  Bleeding  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1310,6 +1354,8 @@
         "en": "Reflexes -  Delicate  Rosary -  Mana  Regen on  Hit  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1361,6 +1407,8 @@
         "en": "Repeater -  Arapuca -  Damage on  Slowed  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1412,6 +1460,8 @@
         "en": "Shadow Dash -  Wheel of  Death -  Life  Cost  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1463,6 +1513,8 @@
         "en": "Shadow  Dash -  Skull of the  Beast -  Hit  Damage  Bonus  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1514,6 +1566,8 @@
         "en": "Reflexes -  Battered  Sheath -  Bounce  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1565,6 +1619,8 @@
         "en": "Split  Shot -  Blunderbuss -  Charged  Shot  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1616,6 +1672,8 @@
         "en": "Repeater -  Molten  Relic -  Grenade  On  Hit  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1667,6 +1725,8 @@
         "en": "Double  Knives -  Banner of  Faith -  Life  Steal  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1727,6 +1787,8 @@
         "zh-cn": "瘟疫伤害加成"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1778,6 +1840,8 @@
         "en": "Double  Knives -  Bloody  Thorn -  Critical  Bleeds  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1829,6 +1893,8 @@
         "en": "Slow  Time -  Poem  Never  Recited -  Applies  Oiled  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1880,6 +1946,8 @@
         "en": "The  Old  Bell -  The  Sacrificed -  Life  Cost to  Damage  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1931,6 +1999,8 @@
         "en": "All  Bullet  Skills -  Powder  Bag -  Physical  Explode  Ignited  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -1982,6 +2052,8 @@
         "en": "The  Old  Bell -  Unshakable  Faith -  Mana to  Damage  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2033,6 +2105,8 @@
         "en": "Slow  Time -  Death  Notary -  Expose  Enemies  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2084,6 +2158,8 @@
         "en": "Reflexes -  Caatinga  Hunter -  Move  Speed on  Hit  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2135,6 +2211,8 @@
         "en": "Shadow  Dash -  Skull of  Wisdom -  Hit  Mana  Bonus  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2186,6 +2264,8 @@
         "en": "Closed  Body -  Martyr -  Missing  Life  Bonus  Conviction"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2237,6 +2317,8 @@
         "en": "Potion -  Conviction  Regen"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2288,6 +2370,8 @@
         "en": "Slow  Time -  Mother of  Perpetual  Help -  Barrier  Buff  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2339,6 +2423,8 @@
         "en": "All  Bullet  Skills -  Silver  Bullets -  Conviction  Damage  Bonus  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2390,6 +2476,8 @@
         "en": "Double  Knives -  Tempest -  Lightning and   Move  Speed  Damage  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2450,6 +2538,8 @@
         "zh-cn": "护符掉落几率加成"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2510,6 +2600,8 @@
         "zh-cn": "遗物掉落几率加成"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2570,6 +2662,8 @@
         "zh-cn": "物理伤害加成"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2630,6 +2724,8 @@
         "zh-cn": "魂石获取"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2690,6 +2786,8 @@
         "zh-cn": "金币获取"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2750,6 +2848,8 @@
         "zh-cn": "流血几率 (物理)"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2810,6 +2910,8 @@
         "zh-cn": "点燃几率 (火焰)"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2870,6 +2972,8 @@
         "zh-cn": "暴击几率"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2930,6 +3034,8 @@
         "zh-cn": "暴击伤害"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -2990,6 +3096,8 @@
         "zh-cn": "火焰伤害"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -3050,6 +3158,8 @@
         "zh-cn": "闪电伤害"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -3110,6 +3220,8 @@
         "zh-cn": "物理伤害"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -3170,6 +3282,8 @@
         "zh-cn": "瘟疫伤害"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -3230,6 +3344,8 @@
         "zh-cn": "最大信念值"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -3290,6 +3406,8 @@
         "zh-cn": "法力再生"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -3350,6 +3468,8 @@
         "zh-cn": "生命"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -3410,6 +3530,8 @@
         "zh-cn": "法力值"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -3461,6 +3583,8 @@
         "en": "Repeater -  Rare -  Increased  Damage and  Mana Cost  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -3516,6 +3640,8 @@
         "en": "Double  Knives -  Rare -  Increased  Damage and  Mana Cost  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -3571,6 +3697,8 @@
         "en": "The  Old  Bell -  Rare -  Increased  Damage and  Mana Cost  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -3626,6 +3754,8 @@
         "en": "Repeater -  Rare -  Reduced  Mana Cost  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large",
         "Exalted",
@@ -3690,6 +3820,8 @@
         "zh-cn": "技能法力消耗"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -3741,6 +3873,8 @@
         "en": "Potion -  Mana  Regen"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -3792,6 +3926,8 @@
         "en": "All  Bullet  Skills -  Rare -  Close  Damage  Bonus  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -3846,6 +3982,8 @@
         "en": "All  Melee  Skills -  Rare -  Critical  Damage  Lifesteal  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small"
       ],
@@ -3899,6 +4037,8 @@
         "en": "Closed  Body -  Rare -  Regain  Mana  On  Use  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large",
         "Exalted",
@@ -3954,6 +4094,8 @@
         "en": "Shadow  Dash -  Rare -  Instant  Cooldown  Chance  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large",
         "Exalted",
@@ -4009,6 +4151,8 @@
         "en": "Stat -  Rare -  Shocked  Intensity  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -4064,6 +4208,8 @@
         "en": "Double  Knives -  Scouts  Medal -  No  Move  Speed  Penalty  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4115,6 +4261,8 @@
         "en": "Holy  Rosary -  Crown of  Thorns -  Physical  Damage  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4166,6 +4314,8 @@
         "en": "Bombardment -  Colonels  Insignia -  Follow  Caster  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4217,6 +4367,8 @@
         "en": "The  Old  Bell -  Toll of the  Dead -  Summon  Companion  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4268,6 +4420,8 @@
         "en": "Summon  The  Guard -  Call of the  Guard -  Double  Companions on  Activation"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4319,6 +4473,8 @@
         "en": "Lasso -  Northerner  Belt -  Cast on  Crit  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4370,6 +4526,8 @@
         "en": "Veil of  Quills -  Mark of the  Vulture -  Stack and  Explode  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4421,6 +4579,8 @@
         "en": "All  Spell  Skills -  Bloodied  Doll -   Damage  Per  Summon  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4472,6 +4632,8 @@
         "en": "Judgement -  Book of  Sin -  Cast on  Kill  Debuffed  Target  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4523,6 +4685,8 @@
         "en": "All  Spell  Skills -  Written  Promise -   Damage  Per  Conviction  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4574,6 +4738,8 @@
         "en": "Reflexes -  Mandacaru -  Damage  Against  Bleeding  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4625,6 +4791,8 @@
         "en": "Holy  Rosary -  Bead  Necklace -  Cast on  Move  Distance  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4676,6 +4844,8 @@
         "en": "Holy  Rosary -  Golden  Chaplet -  Orbit  Around  Target  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4727,6 +4897,8 @@
         "en": "Holy  Rosary -  Workers  Tools -  Use  Summon as  Target  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4778,6 +4950,8 @@
         "en": "Veil of  Quills -  Feathered  Dagger -  Pierce  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4829,6 +5003,8 @@
         "en": "Lasso -  Barbed  Wire -  Guaranteed  Bleed  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4880,6 +5056,8 @@
         "en": "All  Spell  Skills -  Looking  Glass -  Mana  Regen on  Kill  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4931,6 +5109,8 @@
         "en": "Summon  The  Guard -  Stolen  Weapons -  Alternative  Attack using  Splitshot"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -4982,6 +5162,8 @@
         "en": "Judgement -  Memorial  Candle -  Persistent  Ao E  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5033,6 +5215,8 @@
         "en": "Lasso -  Bundle of  Rope -  Lifelink on  Hit  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5084,6 +5268,8 @@
         "en": "Bombardment -  Ashes of  Mourning -  Plague  Damage and  Cooldown on  Hit  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5135,6 +5321,8 @@
         "en": "All  Skills -  Spiked  Chains -  Bleeding  Enemies  Less  Damage  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5186,6 +5374,8 @@
         "en": "Shadow Dash -  Death  Worship -  Add  Melee  Tag  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5237,6 +5427,8 @@
         "en": "Matadeira -  Cafezinho -  Extra  Charges  Affix  Definition"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5288,6 +5480,8 @@
         "en": "Matadeira -  Cannonball -  Physical  Single  Instance  Area  Definition"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5339,6 +5533,8 @@
         "en": "Feitors  Lash -  Ancestral  Memory -  Recast with  Summon  Affix  Definition"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5390,6 +5586,8 @@
         "en": "Feitors  Lash -  Settle the  Score -  Third  Strike  Bonus  Affix  Definition"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5441,6 +5639,8 @@
         "en": "Feitors  Lash -  Burning  Shackles -  Explode  Ignite  Affix  Definition"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5492,6 +5692,8 @@
         "en": "Prayer of  Health -  Righteous  Blade -  Fire  Damage  Aura  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5543,6 +5745,8 @@
         "en": "Prayer of  Health -  Saviours  Shield -  Reduced  Damage  From  Ignited  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5594,6 +5798,8 @@
         "en": "Prayer of  Health -  Heads or  Tails -  Second  Wind  Chance  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5645,6 +5851,8 @@
         "en": "Passage -  Energy  Box -  Plague  Area  On  Finish  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5696,6 +5904,8 @@
         "en": "Passage -  Ticket -  Teleport  All  Summons  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5747,6 +5957,8 @@
         "en": "Passage -  Peace and  Quiet -  Conviction for  Near  Enemies  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5798,6 +6010,8 @@
         "en": "Summon  Marksmen -  Future  Weapon -  Bounce  Shot  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5849,6 +6063,8 @@
         "en": "Prayer of  Vengeance -  Garrison  Supplies -  Marksman  Projectile  Amount  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5900,6 +6116,8 @@
         "en": "Summon  Marksmen -  Summoning of  Earth -  Phys  Res  Shred  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -5951,6 +6169,8 @@
         "en": "Summon  Marksmen -  Summoning of  Air -  Light  Res  Shred  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -6002,6 +6222,8 @@
         "en": "Prayer of  Vengeance -  Final  Reckoning -  Explosion on  Second  Wind  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -6053,6 +6275,8 @@
         "en": "Summon  Brute -  Blood  Money -  Instant  Respawn  Life  Cost  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -6104,6 +6328,8 @@
         "en": "Summon  Brute -  Breath  Mask -  Conviction on  Death  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -6155,6 +6381,8 @@
         "en": "Summon  Brute -  Disorientation -  Explode on  Death  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -6206,6 +6434,8 @@
         "en": "All  Skills -  Bundle of  Syringes -  Buff on  Lifesteal  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -6257,6 +6487,8 @@
         "en": "Summon  Brute -  Voice of  War -  Summon  Damage  Buff  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -6308,6 +6540,8 @@
         "en": "All  Skills -  Rare -  Increase  Damage vs  Blighted and  Withered  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -6363,6 +6597,8 @@
         "en": "All  Melee  Skills -  Rare -  Stunned  Enemies  Damage  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -6418,6 +6654,8 @@
         "en": "All  Spell  Skills -  Rare -  Conviction  Decay  Resistance  On  Hit  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -6473,6 +6711,8 @@
         "en": "All  Skills -  Rare -  Less  Damage  Close  Enemies  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -6527,6 +6767,8 @@
         "en": "Potion -  Rare -  Elemental  Resistance on  Use  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large",
         "Exalted",
@@ -6582,6 +6824,8 @@
         "en": "Potion -  Rare -  Physical  Resistance on  Use  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large",
         "Exalted",
@@ -6637,6 +6881,8 @@
         "en": "Reflexes -  Rare -  Cast on  Evade  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large",
         "Exalted",
@@ -6701,6 +6947,8 @@
         "zh-cn": "点燃伤害"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -6764,6 +7012,8 @@
         "zh-cn": "耐力"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -6828,6 +7078,8 @@
         "zh-cn": "衰竭积蓄速率"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -6891,6 +7143,8 @@
         "zh-cn": "眩晕积蓄速率"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -6954,6 +7208,8 @@
         "zh-cn": "流血伤害"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -7008,6 +7264,8 @@
         "en": "All  Skills -  Rare -  Increase  Marksman  Damage on  Evade  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -7063,6 +7321,8 @@
         "en": "All  Marksman  Skills -  Rare -  Evasion on  Hit  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large",
         "Exalted",
@@ -7118,6 +7378,8 @@
         "en": "All  Prayer  Skills -  Rare -  Move  Speed  Buff  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -7173,6 +7435,8 @@
         "en": "Passage -  Rare -  Recover  Mana on  Use  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large",
         "Exalted",
@@ -7228,6 +7492,8 @@
         "en": "Feitors  Lash -  Rare -  Increase  Damage and  Mana  Cost  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -7292,6 +7558,8 @@
         "zh-cn": "近战技能伤害"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -7355,6 +7623,8 @@
         "zh-cn": "召唤基础技能伤害"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -7418,6 +7688,8 @@
         "zh-cn": "技能投射物数量"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -7481,6 +7753,8 @@
         "zh-cn": "物理抗性"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large"
       ],
@@ -7543,7 +7817,13 @@
         "zh-cn": "生命"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1.08,
@@ -7603,7 +7883,13 @@
         "zh-cn": "耐力"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.03,
@@ -7663,7 +7949,13 @@
         "zh-cn": "生命再生"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.0075,
@@ -7723,7 +8015,13 @@
         "zh-cn": "近战技能伤害"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.09,
@@ -7783,7 +8081,13 @@
         "zh-cn": "火焰伤害"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.15,
@@ -7843,7 +8147,13 @@
         "zh-cn": "物理伤害"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.15,
@@ -7903,7 +8213,13 @@
         "zh-cn": "生命"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.005,
@@ -7963,7 +8279,13 @@
         "zh-cn": "生命获取"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1.1,
@@ -8023,7 +8345,12 @@
         "zh-cn": "近战技能伤害"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.13,
@@ -8083,7 +8410,12 @@
         "zh-cn": "火焰伤害加成"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 35,
@@ -8143,7 +8475,12 @@
         "zh-cn": "物理伤害加成"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 35,
@@ -8203,7 +8540,13 @@
         "zh-cn": "生命"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "DisciplineImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1.05,
@@ -8263,7 +8606,13 @@
         "zh-cn": "闪避"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "DisciplineImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.025,
@@ -8323,7 +8672,13 @@
         "zh-cn": "移动速度"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "DisciplineImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.05,
@@ -8383,7 +8738,13 @@
         "zh-cn": "法力值"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.005,
@@ -8443,7 +8804,13 @@
         "zh-cn": "法力值"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1.08,
@@ -8503,7 +8870,13 @@
         "zh-cn": "最大信念值"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -8563,7 +8936,12 @@
         "zh-cn": "技能法力消耗"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.98,
@@ -8623,7 +9001,12 @@
         "zh-cn": "技能投射物数量"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.5,
@@ -8683,6 +9066,8 @@
         "zh-cn": "闪电伤害"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -8743,6 +9128,8 @@
         "zh-cn": "火焰伤害"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -8803,6 +9190,8 @@
         "zh-cn": "瘟疫伤害"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -8863,6 +9252,8 @@
         "zh-cn": "物理伤害"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -8923,7 +9314,13 @@
         "zh-cn": "反魔法"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.03,
@@ -8983,7 +9380,13 @@
         "zh-cn": "法力护盾"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.03,
@@ -9043,7 +9446,13 @@
         "zh-cn": "神射手技能伤害"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "DisciplineImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.09,
@@ -9103,7 +9512,12 @@
         "zh-cn": "神射手技能伤害"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "DisciplineImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.13,
@@ -9163,7 +9577,13 @@
         "zh-cn": "瘟疫伤害"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "DisciplineImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.15,
@@ -9223,7 +9643,13 @@
         "zh-cn": "技能法术伤害"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.09,
@@ -9283,7 +9709,12 @@
         "zh-cn": "技能法术伤害"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.13,
@@ -9343,7 +9774,12 @@
         "zh-cn": "瘟疫伤害加成"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "DisciplineImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 35,
@@ -9403,7 +9839,12 @@
         "zh-cn": "闪电伤害加成"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 35,
@@ -9463,7 +9904,13 @@
         "zh-cn": "闪电伤害"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.15,
@@ -9523,7 +9970,13 @@
         "zh-cn": "攻击速度"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -9583,7 +10036,13 @@
         "zh-cn": "吸血"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.01,
@@ -9643,7 +10102,12 @@
         "zh-cn": "眩晕积蓄速率"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 1.15,
@@ -9703,7 +10167,12 @@
         "zh-cn": "攻击速度"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.045,
@@ -9754,7 +10223,12 @@
         "en": "Stat -  Implicit -  Max  Vigor  Stack"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FuryImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -9805,7 +10279,12 @@
         "en": "Stat -  Implicit -  Max  Power  Orbs"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -9856,7 +10335,12 @@
         "en": "Stat -  Implicit -  Max  Agility  Orbs"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "DisciplineImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -9916,7 +10400,12 @@
         "zh-cn": "移动速度"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "DisciplineImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.025,
@@ -9976,7 +10465,12 @@
         "zh-cn": "衰竭积蓄速率"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "DisciplineImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 1.15,
@@ -10036,7 +10530,12 @@
         "zh-cn": "召唤物伤害值"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "FaithImbued",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.18,
@@ -10096,7 +10595,12 @@
         "zh-cn": "信念减弱抗性"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.12,
@@ -10147,6 +10651,8 @@
         "en": "Split  Shot -  Labaredas -  Ignite  Projectile  Amount  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -10198,6 +10704,8 @@
         "en": "All  Skills -  Tiriris  Law -  Loot  Magnet on  Kill  Ignited  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -10249,7 +10757,12 @@
         "en": "Skill  Level -  Implicit -  Split Shot   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Splitshot Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10300,7 +10813,12 @@
         "en": "Skill  Level -  Implicit -  Double  Knives  Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Double Knives Skill Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10351,7 +10869,12 @@
         "en": "Skill  Level -  Implicit -  Closed Body   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Closed Body Skill Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10402,7 +10925,12 @@
         "en": "Skill  Level -  Implicit -  Bombardment   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Bombardment Skill Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10453,7 +10981,12 @@
         "en": "Skill  Level -  Implicit -  Feitors Lash   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Feitors Lash Skill Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10504,7 +11037,12 @@
         "en": "Skill  Level -  Implicit -  Holy Rosary  Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Holy  Rosary",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10555,7 +11093,12 @@
         "en": "Skill  Level -  Implicit -  Judgment   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Judgement Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10606,7 +11149,12 @@
         "en": "Skill  Level -  Implicit -  Lasso  Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Lasso Skill Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10657,7 +11205,12 @@
         "en": "Skill  Level -  Implicit -  Matadeira   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Matadeira",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10708,7 +11261,12 @@
         "en": "Skill  Level -  Implicit -  Passage   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Passage Skill Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10759,7 +11317,12 @@
         "en": "Skill  Level -  Implicit -  Prayer Health   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Prayer Of Health Skill Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10810,7 +11373,12 @@
         "en": "Skill  Level -  Implicit -  Prayer Vengeance   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Prayer Of Vengeance Skill Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10861,7 +11429,12 @@
         "en": "Skill  Level -  Implicit -  Reflexes   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Reflexes Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10912,7 +11485,12 @@
         "en": "Skill  Level -  Implicit -  Repeater   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Repeater Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -10963,7 +11541,12 @@
         "en": "Skill  Level -  Implicit -  Shadow Dash   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Shadow Dash Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -11014,7 +11597,12 @@
         "en": "Skill  Level -  Implicit -  Slow Time   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Slow Time Skill Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -11065,7 +11653,12 @@
         "en": "Skill  Level -  Implicit -  Summon Brute   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Summon  Brute",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -11116,7 +11709,12 @@
         "en": "Skill  Level -  Implicit -  Summon Marksmen   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Summon  Marksmen",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -11167,7 +11765,12 @@
         "en": "Skill  Level -  Implicit -  Summon Guard   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Summon  The  Guard",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -11218,7 +11821,12 @@
         "en": "Skill  Level -  Implicit -  The Old Bell   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "The Old Bell Skill Definition",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -11269,7 +11877,12 @@
         "en": "Skill  Level -  Implicit -  Veilof Quills   Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Veil of  Quils",
+      "blockedSizes": [
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -11320,7 +11933,12 @@
         "en": "Skill  Level -  Implicit -  Bombardment   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Bombardment Skill Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11371,7 +11989,12 @@
         "en": "Skill  Level -  Implicit -  Closed Body   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Closed Body Skill Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11422,7 +12045,12 @@
         "en": "Skill  Level -  Implicit -  Double  Knives  Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Double Knives Skill Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11473,7 +12101,12 @@
         "en": "Skill  Level -  Implicit -  Feitors Lash   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Feitors Lash Skill Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11524,7 +12157,12 @@
         "en": "Skill  Level -  Implicit -  Holy Rosary  Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Holy  Rosary",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11575,7 +12213,12 @@
         "en": "Skill  Level -  Implicit -  Judgment   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Judgement Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11626,7 +12269,12 @@
         "en": "Skill  Level -  Implicit -  Lasso  Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Lasso Skill Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11677,7 +12325,12 @@
         "en": "Skill  Level -  Implicit -  Matadeira   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Matadeira",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11728,7 +12381,12 @@
         "en": "Skill  Level -  Implicit -  Passage   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Passage Skill Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11779,7 +12437,12 @@
         "en": "Skill  Level -  Implicit -  Prayer Health   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Prayer Of Health Skill Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11830,7 +12493,12 @@
         "en": "Skill  Level -  Implicit -  Prayer Vengeance   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Prayer Of Vengeance Skill Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11881,7 +12549,12 @@
         "en": "Skill  Level -  Implicit -  Reflexes   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Reflexes Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11932,7 +12605,12 @@
         "en": "Skill  Level -  Implicit -  Repeater   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Repeater Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -11983,7 +12661,12 @@
         "en": "Skill  Level -  Implicit -  Shadow Dash   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Shadow Dash Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -12034,7 +12717,12 @@
         "en": "Skill  Level -  Implicit -  Slow Time   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Slow Time Skill Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -12085,7 +12773,12 @@
         "en": "Skill  Level -  Implicit -  Split Shot   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Splitshot Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -12136,7 +12829,12 @@
         "en": "Skill  Level -  Implicit -  Summon Brute   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Summon  Brute",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -12187,7 +12885,12 @@
         "en": "Skill  Level -  Implicit -  Summon Guard   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Summon  The  Guard",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -12238,7 +12941,12 @@
         "en": "Skill  Level -  Implicit -  Summon Marksmen   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Summon  Marksmen",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -12289,7 +12997,12 @@
         "en": "Skill  Level -  Implicit -  The Old Bell   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "The Old Bell Skill Definition",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -12340,7 +13053,12 @@
         "en": "Skill  Level -  Implicit -  Veilof Quills   Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Veil of  Quils",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -12400,7 +13118,13 @@
         "zh-cn": "金币获取"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -12460,7 +13184,13 @@
         "zh-cn": "魂石获取"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -12520,7 +13250,13 @@
         "zh-cn": "物理抗性"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.07,
@@ -12580,7 +13316,13 @@
         "zh-cn": "生命"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1.1,
@@ -12640,7 +13382,13 @@
         "zh-cn": "冷却速度"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -12700,7 +13448,13 @@
         "zh-cn": "生命获取"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -12760,7 +13514,13 @@
         "zh-cn": "物理抗性"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -12820,7 +13580,13 @@
         "zh-cn": "闪避"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -12880,7 +13646,12 @@
         "zh-cn": "物理抗性"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.15,
@@ -12940,7 +13711,12 @@
         "zh-cn": "物理抗性上限"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.04,
@@ -13000,7 +13776,12 @@
         "zh-cn": "生命"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 300,
@@ -13060,7 +13841,12 @@
         "zh-cn": "法力值"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 150,
@@ -13111,6 +13897,8 @@
         "en": "Split Shot -  Rare -  Reduced  Mana Cost  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large",
         "Exalted",
@@ -13175,6 +13963,8 @@
         "zh-cn": "反魔法"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -13230,6 +14020,8 @@
         "en": "All  Spell  Skills -  Headless  Doll -   Summon  Damage  Per  Summon  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13281,6 +14073,8 @@
         "en": "Shadow  Dash -  Skull of the  Forgotten -  Endurance  Movespeed  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13332,6 +14126,8 @@
         "en": "Repeater -  Summoning of  Death -  Phys   Res  Shred  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13383,6 +14179,8 @@
         "en": "All  Skills -  Bloodied  Chains -  Bleeding  Enemies  Less  Damage  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13434,6 +14232,8 @@
         "en": "All  Bullet  Skills -  Blessed  Bullets -  Spell  Tags  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13485,6 +14285,8 @@
         "en": "Judgement -  Book of  Judgment -  Cast on  Kill  Debuffed  Target  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13536,6 +14338,8 @@
         "en": "All  Skills -  Dry  Leaf -  Lightning  Damage vs  Ignited  Enemies  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13587,6 +14391,8 @@
         "en": "Veil of  Quills -  Energized  Figurine -  Lightning  Projectile  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13638,6 +14444,8 @@
         "en": "All  Skills -  Belt of the  Cowboy -  Gain  Conviction on  Hurt  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13689,6 +14497,8 @@
         "en": "All  Skills -  Courage of  Ogum -  Healing on  Ogum  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13740,6 +14550,8 @@
         "en": "All  Skills -  Strength of  Ogum -  Max  Vigor  Stacks  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13791,6 +14603,8 @@
         "en": "All  Skills -  Primal  Dagger -  Gain  Phys  Dmg on  Missing  Mana  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13842,6 +14656,8 @@
         "en": "Closed  Body -  Son of the  Draught  -  Retaliation  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13893,6 +14709,8 @@
         "en": "All  Skills -  Light of  Tupa -  Power  Orb  Damage  Size  Radius  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13944,6 +14762,8 @@
         "en": "All  Skills -  Sound of  Tupa -  Max  Power  Orb  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -13995,6 +14815,8 @@
         "en": "Passage -  Bloodied  Tools -  Holy  Rosary per  Power  Orb  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14046,6 +14868,8 @@
         "en": "All  Spell  Skills -  Mothers  Blessing -  Spell  Damage on  High  Mana  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14097,6 +14921,8 @@
         "en": "All  Skills -  Urgency of  Expedito -  Damage if no  Enemies near  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14148,6 +14974,8 @@
         "en": "All  Skills -  Justice of  Expedito -  Max  Agi  Orbs  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14199,6 +15027,8 @@
         "en": "All  Skills -  Careful  Hunter -  Evasion for  Agi  Orb  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14250,6 +15080,8 @@
         "en": "Reflexes -  Blood  Stone -  Throw  Knife with  Agi  Orb  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14301,6 +15133,8 @@
         "en": "Matadeira -  Tenkieis  Skyhammer -  Melee  Tag and  Autocast  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14352,6 +15186,8 @@
         "en": "All  Skills -  Murks  Blood  Veil -  Degen and  Damage  Area  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14403,6 +15239,8 @@
         "en": "All  Skills -  Monddocs  Earth  Orb -  Multiple  Bonuses  P H Y S  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14454,6 +15292,8 @@
         "en": "Veil of  Quills -  Green  Leaf -  Spawn  Quills  From  Withered  Enemies  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14505,6 +15345,8 @@
         "en": "All  Skills -  Blood  Boil -  Do T on  Bleed and  Ignited  Enemies  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14556,6 +15398,8 @@
         "en": "All  Skills -  Wall of  Fire -  Ignite  Damage per  Power  Orb  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14607,6 +15451,8 @@
         "en": "All  Skills -  Monddocs  Air  Orb -  Multiple  Bonuses  L I G H T N I N G  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14658,6 +15504,8 @@
         "en": "All  Skills -  Monddocs  Fire  Orb -  Multiple  Bonuses  F I R E  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14709,6 +15557,8 @@
         "en": "All  Skills -  Monddocs  Water  Orb -  Multiple  Bonuses  P L A G U E  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14760,7 +15610,12 @@
         "en": "Skill Behavior -  Implicit -  Max  Summons"
       },
       "rarity": "Common",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": null,
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -14811,6 +15666,8 @@
         "en": "Jaguar  Spear -  Hunters  Charm -  Kills  Give  Move  Speed  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14862,6 +15719,8 @@
         "en": "Jaguar  Spear -  Throwing  Spear -  Turns into  Projectile  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14913,6 +15772,8 @@
         "en": "Cilada -  Fresh  Bait -   Marksman  Damage  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -14964,6 +15825,8 @@
         "en": "Cilada -  Thorned  Net -  Gain  Stack of  Bleed  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15015,6 +15878,8 @@
         "en": "Cilada -  Travellers  Pouch -  Three  Traps  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15066,6 +15931,8 @@
         "en": "Carcara  Dive -  Bird  Claw -   Melee  Damage  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15117,6 +15984,8 @@
         "en": "Jaguar  Spear -  Blood and  Fire -  Converts to  Fire  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15168,6 +16037,8 @@
         "en": "Carcara  Dive -  Feathered  Bracers -  Reset  Cooldown  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15219,6 +16090,8 @@
         "en": "Carcara  Dive -  Feathered  Staff -  Converts to  Physical and  Bleed  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15270,6 +16143,8 @@
         "en": "Holy  Fire -  Blighted  Carcass -  Converts to  Plague  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15321,6 +16196,8 @@
         "en": "Holy  Fire -  Crimson  Sword -  Spawn  Projectiles on  Finish  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15372,6 +16249,8 @@
         "en": "Holy  Fire -  Black  Cilice -  Drain  Life  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15423,6 +16302,8 @@
         "en": "Tupas  Wrath -  Icon of the  Sun -  Double  Projectile  Amount  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15474,6 +16355,8 @@
         "en": "Tupas  Wrath -  Scorched  Bones -  Energizes  Summons  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15525,6 +16408,8 @@
         "en": "Tupas  Wrath -  Scorched  Branch -  Builds  Up  Stun  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15576,6 +16461,8 @@
         "en": "Six  Shooter -  Explosive  Lead -  Marked  Stack  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15627,6 +16514,8 @@
         "en": "Six  Shooter -  Hunters  Pouch -  Evade for  Move  Speed and  Evasion  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15678,6 +16567,8 @@
         "en": "Six  Shooter -  Enchanted  Loader -  Regenerates  Ammo on  Move  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15729,6 +16620,8 @@
         "en": "Summon  Brute -  Breath of  Death -  Retaliates  Mana  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15780,6 +16673,8 @@
         "en": "All  Skills -  In  Flames -  Ignite  Stacks  Max  Life  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15831,6 +16726,8 @@
         "en": "Repeater -  Unwieldy  Weapon -  More  Damage  Random  Direction  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15882,6 +16779,8 @@
         "en": "Reflexes -  Grim  Rosary -  Interval and  Regen  Speed  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15933,6 +16832,8 @@
         "en": "Reflexes -  Wall of  Thorns -  Thorns  Explosion  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -15984,6 +16885,8 @@
         "en": "All  Bullet  Skills -  Moldy  Skull -  Plague  Conversion  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -16035,6 +16938,8 @@
         "en": "Repeater -  Broken  Mirror -  Summons  Shadow with  Repeater  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -16086,6 +16991,8 @@
         "en": "The  Old  Bell -  Death  Bell -  Collision  Bell  Shockwave  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -16137,6 +17044,8 @@
         "en": "All  Skills -  Calcite  Necklace -  Physical to  Lightning  Conversion  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -16188,6 +17097,8 @@
         "en": "Bombardment -  Kaleidoscope -  Fire  Plague  Lightning  Damage  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -16239,6 +17150,8 @@
         "en": "Double  Knives -  Red  Candle -  Bleed  Explosion  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -16290,7 +17203,12 @@
         "en": "Skill  Level  E X P -  Implicit -  Jaguar Spear  Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Jaguar  Spear",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -16341,7 +17259,12 @@
         "en": "Skill  Level  E X P -  Implicit -  Cilada  Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Cilada",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -16392,7 +17315,12 @@
         "en": "Skill  Level  E X P -  Implicit -  Carcara Dive  Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Carcara  Dive",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -16443,7 +17371,12 @@
         "en": "Skill  Level  E X P -  Implicit -  Holy Fire  Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Holy  Fire",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -16494,7 +17427,12 @@
         "en": "Skill  Level  E X P -  Implicit -  Tupas Wrath  Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Tupas  Wrath",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -16545,7 +17483,12 @@
         "en": "Skill  Level  E X P -  Implicit -  Six Shooter  Plus 2  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Six  Shooter",
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 2,
@@ -16596,7 +17539,13 @@
         "en": "Skill  Level  E X P -  Implicit -  Carcara Dive  Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Carcara  Dive",
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -16647,7 +17596,13 @@
         "en": "Skill  Level  E X P -  Implicit -  Cilada  Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Cilada",
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -16698,7 +17653,13 @@
         "en": "Skill  Level  E X P -  Implicit -  Holy Fire  Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Holy  Fire",
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -16749,7 +17710,13 @@
         "en": "Skill  Level  E X P -  Implicit -  Jaguar Spear  Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Jaguar  Spear",
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -16800,7 +17767,13 @@
         "en": "Skill  Level  E X P -  Implicit -  Six Shooter  Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Six  Shooter",
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -16851,7 +17824,13 @@
         "en": "Skill  Level  E X P -  Implicit -  Tupas Wrath  Plus 1  Affix"
       },
       "rarity": "Implicit",
-      "blockedSizes": [],
+      "implicitCategory": "Corrupted",
+      "skillName": "Tupas  Wrath",
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 1,
@@ -16902,6 +17881,8 @@
         "en": "Six  Shooter -  Gunsmith  Tools -  Bounce on  Player  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -16953,6 +17934,8 @@
         "en": "Cilada -  Infested  Chains -  Explodes on  Contact"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17004,6 +17987,8 @@
         "en": "All  Melee  Skills -  Assassins  Dagger -  More  Melee  Damage  On  Stunned  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17055,6 +18040,8 @@
         "en": "Jaguar  Spear -  Phantom  Spear -  Kills  Summons  Hounds"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17106,6 +18093,8 @@
         "en": "Summon  Marksmen -  Infested  Weapon -  Switch to  Repeater"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17157,6 +18146,8 @@
         "en": "All  Skills -  Infection -  Bleed  Last  Longer on  Blighted  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17208,6 +18199,8 @@
         "en": "Slow  Time -  The  Crossing -  Slow  Time  Bleeds"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17259,6 +18252,8 @@
         "en": "Shadow  Dash -  Infested  Skull -  Consume  Blight"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17310,6 +18305,8 @@
         "en": "All  Marksman  Skills -  Soldiers  Holster -  No  Movement  Penalty for  Marksman  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17361,6 +18358,8 @@
         "en": "Split  Shot -  Plague  Bullets -  Plague  Conversion and  Ricochet  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17412,6 +18411,8 @@
         "en": "Repeater -  Lone  Quill -  Chance to  Shoot  Quills  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17463,6 +18464,8 @@
         "en": "All  Skills -  Anhangas  Horns -  Blighted  Enemies  Miss  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17514,6 +18517,8 @@
         "en": "All  Skills -  Blood  Dagger -  Double  Bleed  With  No  Crit  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17565,6 +18570,8 @@
         "en": "All  Skills -  Brass  Knuckles -  Life  Full  Melee  Damage  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17616,6 +18623,8 @@
         "en": "All  Skills -  Crimson  Flower -  Fire  Damage  No  Crits  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17667,6 +18676,8 @@
         "en": "All  Skills -  Olho de  Cabra -  Chance to  Instantly  Stun  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17718,6 +18729,8 @@
         "en": "All  Skills -  Yacis  Pipe -  All  Skill  Areas  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17769,6 +18782,8 @@
         "en": "Bombardment -  Artillery  Manual -  Bombardment  Exposed  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17820,6 +18835,8 @@
         "en": "Bombardment -  Spyglass -  Extra  Damage vs  Ailments  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17871,6 +18888,8 @@
         "en": "Carcara  Dive -  Skull of the  Carcara -  Explode  Bleeding  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17922,6 +18941,8 @@
         "en": "Holy  Rosary -  Wild  Dog  Fangs -  Hits  Cull  Life  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -17973,6 +18994,8 @@
         "en": "Split  Shot -  Tiriris  Cachaca -  Stacks of  Ignite  Damage  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -18024,6 +19047,8 @@
         "en": "Summon  Brute -  Workers  Gloves -  Melee  Damage  Stacks  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -18075,6 +19100,8 @@
         "en": "Summon  Marksmen -  Trusty  Bible -  Chance to  Cast  On  Kill  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -18126,6 +19153,8 @@
         "en": "The  Old  Bell -  Infested  Cross -  Damage for  Bleed  Stacks  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -18177,6 +19206,8 @@
         "en": "Tupas  Wrath -  Cloak of  Storms -  Cast on  Life  Lost  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -18228,6 +19259,8 @@
         "en": "Veil of  Quills -  Feathered  Bone -  No  Homing and  Ailment  Damage  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -18279,6 +19312,8 @@
         "en": "All  Skills -  Crimson  Necklace -  Physical to  Fire  Conversion  Affix"
       },
       "rarity": "Common",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -18330,6 +19365,8 @@
         "en": "All  Skills -  Propaganda -  Description  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -18381,6 +19418,8 @@
         "en": "Jaguar  Spear -  Rare -  Increased  Damage and  Mana Cost  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -18436,6 +19475,8 @@
         "en": "Lead  Sermon -  Rare -  Increased  Damage and  Mana Cost  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -18491,6 +19532,8 @@
         "en": "Tupas  Wrath -  Rare -  Mana to  Damage  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -18545,6 +19588,8 @@
         "en": "All  Skills -  Rare -  Spell  Damage vs  Stunned and  Shocked  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -18600,6 +19645,8 @@
         "en": "Lead  Sermon -  Rare -  Max  Ammo  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Large",
         "Exalted",
@@ -18655,6 +19702,8 @@
         "en": "All  Skills -  Rare -   Fire  Damage  On  Ignite  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -18709,6 +19758,8 @@
         "en": "Holy  Fire -  Rare -  Increased  Damage less  Crit  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -18763,6 +19814,8 @@
         "en": "Cilada -  Rare -   Damage  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Large"
@@ -18817,6 +19870,8 @@
         "en": "Holy  Fire -  Charred  Figurine -  Charged  Shot  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -18868,6 +19923,8 @@
         "en": "All  Skills -  Bottle of  Oil -  Physical  Damage  Oiled  Affix"
       },
       "rarity": "Unique",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [],
       "tiers": {
         "1": {
@@ -18919,6 +19976,8 @@
         "en": "All  Skills -  Rare -  Increase  Damage vs  Bleeding  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",
@@ -18974,6 +20033,8 @@
         "en": "All  Skills -  Rare -  Ignite  Gives  Vulnerability  Affix"
       },
       "rarity": "Special",
+      "implicitCategory": null,
+      "skillName": null,
       "blockedSizes": [
         "Small",
         "Exalted",

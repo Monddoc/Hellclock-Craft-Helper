@@ -8,6 +8,8 @@ interface AffixData {
   descLocalizations: Record<string, string>;
   statLocalizations: Record<string, string>;
   rarity: string;
+  implicitCategory?: string;
+  skillName?: string;
   blockedSizes: string[];
   tiers: Record<string, TierData>;
 }
@@ -42,19 +44,133 @@ const LANGUAGES = [
   { code: 'zh-cn', label: '简体中文' }
 ];
 
-const formatListDescription = (desc: string, min: number, max: number, statName: string) => {
+const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
+  'en': {
+    title: 'Hell Clock Craft',
+    tabSimulator: 'Crafting Pools',
+    tabDatabase: 'All Affixes',
+    language: 'Language',
+    tierRolls: 'Tier Rolls',
+    tier: 'Tier',
+    relicSize: 'Relic Size',
+    sortBy: 'Sort By',
+    nameAZ: 'Name (A-Z)',
+    nameZA: 'Name (Z-A)',
+    rarity: 'Rarity',
+    searchLabel: 'Search Affixes',
+    searchPlaceholder: 'Search by name, stat, or description...',
+    noRolls: 'Does not roll at this tier',
+    craftableOn: 'Craftable on:',
+    allSizes: 'All Sizes',
+    chance: 'chance',
+    noResults: 'No affixes found matching your search.',
+    rareAffixes: 'Rare Affixes',
+    prefixes: 'Prefixes',
+    suffixes: 'Suffixes',
+    roll: 'Roll:',
+    sortByCorrupted: 'Corrupted',
+    sortByFaith: 'Faith Imbued',
+    sortByFury: 'Fury Imbued',
+    sortByDiscipline: 'Discipline Imbued'
+  },
+  'pt-br': {
+    title: 'Hell Clock Craft',
+    tabSimulator: 'Simulador',
+    tabDatabase: 'Todos os Afixos',
+    language: 'Idioma',
+    tierRolls: 'Grau do Afixo',
+    tier: 'Grau',
+    relicSize: 'Tamanho da Relíquia',
+    sortBy: 'Ordenar Por',
+    nameAZ: 'Nome (A-Z)',
+    nameZA: 'Nome (Z-A)',
+    rarity: 'Raridade',
+    searchLabel: 'Buscar Afixos',
+    searchPlaceholder: 'Busque por nome, atributo ou descrição...',
+    noRolls: 'Não pode ser obtido neste grau',
+    craftableOn: 'Pode ser criado em:',
+    allSizes: 'Todos os Tamanhos',
+    chance: 'chance',
+    noResults: 'Nenhum afixo encontrado.',
+    rareAffixes: 'Afixos Raros',
+    prefixes: 'Prefixos',
+    suffixes: 'Sufixos',
+    roll: 'Valor:'
+  },
+  'es': {
+    title: 'Hell Clock Craft',
+    tabSimulator: 'Simulador',
+    tabDatabase: 'Todos los Afijos',
+    language: 'Idioma',
+    tierRolls: 'Nivel de Afijo',
+    tier: 'Nivel',
+    relicSize: 'Tamaño de Reliquia',
+    sortBy: 'Ordenar Por',
+    nameAZ: 'Nombre (A-Z)',
+    nameZA: 'Nombre (Z-A)',
+    rarity: 'Rareza',
+    searchLabel: 'Buscar Afijos',
+    searchPlaceholder: 'Buscar por nombre, atributo...',
+    noRolls: 'No se puede obtener en este nivel',
+    craftableOn: 'Se puede crear en:',
+    allSizes: 'Todos los tamaños',
+    chance: 'probabilidad',
+    noResults: 'No se encontraron afijos.',
+    rareAffixes: 'Afijos Raros',
+    prefixes: 'Prefijos',
+    suffixes: 'Sufijos',
+    roll: 'Valor:'
+  },
+  'de': {
+    tabSimulator: 'Crafting-Pools',
+    tabDatabase: 'Alle Affixe',
+    language: 'Sprache',
+    tierRolls: 'Tier-Rollen',
+    tier: 'Tier',
+    relicSize: 'Reliktgröße',
+    searchLabel: 'Affixe suchen',
+    searchPlaceholder: 'Suche nach Name, Wert...',
+    noRolls: 'Rollt nicht auf diesem Tier',
+    craftableOn: 'Herstellbar auf:',
+    allSizes: 'Alle Größen',
+    chance: 'Chance',
+    noResults: 'Keine Affixe gefunden.',
+    rareAffixes: 'Seltene Affixe',
+    prefixes: 'Präfixe',
+    suffixes: 'Suffixe',
+    roll: 'Wert:'
+  }
+};
+
+const t = (key: string, currentLang: string) => {
+  return UI_TRANSLATIONS[currentLang]?.[key] || UI_TRANSLATIONS['en'][key];
+};
+
+const formatListDescription = (desc: string, min: number, max: number, statName: string, rollText: string) => {
   if (!desc) return { __html: '' };
-  let is1Value = desc.includes('<style="TooltipValue">{1}</style>');
+  
+  const is1Value = desc.includes('<style="TooltipValue">{1}</style>');
+  const has0 = desc.includes('{0}');
+  const has1 = desc.includes('{1}');
+  
   let formatted = desc.replace(/<style="[^"]*">/g, '').replace(/<\/style>/g, '');
   
+  // If min and max are 0, there is no roll scaling at all
+  if (min === 0 && max === 0) {
+    return { __html: formatted.replace('{0}', statName).replace('{1}', statName) };
+  }
+
   let minF = min < 1 ? (min * 100).toFixed(1) + '%' : min.toFixed(1);
   let maxF = max < 1 ? (max * 100).toFixed(1) + '%' : max.toFixed(1);
   const rangeStr = `<span class="affix-roll">[${minF} - ${maxF}]</span>`;
 
   if (is1Value) {
     formatted = formatted.replace('{1}', rangeStr).replace('{0}', statName);
-  } else {
+  } else if (has0 || has1) {
     formatted = formatted.replace('{0}', rangeStr).replace('{1}', statName);
+  } else {
+    // FIX: If the game data description lacks {0} but DOES have a tier roll range, append it to the end so it's not invisible!
+    formatted = `${formatted}<br/><br/><strong>${rollText}</strong> ${rangeStr} ${statName}`;
   }
 
   return { __html: formatted };
@@ -123,16 +239,23 @@ export default function App() {
     const min = tierStats ? tierStats.min : 0;
     const max = tierStats ? tierStats.max : 0;
     
-    const localName = affixDef.nameLocalizations[lang] || affixDef.nameLocalizations['en'] || 'Unknown';
+    const baseLocalName = affixDef.nameLocalizations[lang] || affixDef.nameLocalizations['en'] || 'Unknown';
+    const localName = affixDef.skillName ? affixDef.skillName : baseLocalName;
     const localDesc = affixDef.descLocalizations[lang] || affixDef.descLocalizations['en'] || '';
     const localStat = affixDef.statLocalizations[lang] || affixDef.statLocalizations['en'] || '';
     
-    const displayRarity = affixDef.rarity === 'Special' ? 'Rare' : affixDef.rarity;
-    const rarityClass = `rarity-${affixDef.rarity.toLowerCase()}`;
+    let displayRarity = affixDef.rarity === 'Special' ? 'Rare' : affixDef.rarity;
+    let rarityClass = `rarity-${affixDef.rarity.toLowerCase()}`;
+    
+    if (affixDef.implicitCategory) {
+      displayRarity += ` - ${affixDef.implicitCategory.replace('Imbued', ' Imbued')}`;
+      rarityClass += ` rarity-${affixDef.implicitCategory.toLowerCase()}`;
+    }
+
     const hoverClass = affixDef.rarity === 'Special' ? 'special-hover' : 'common-hover';
     
     const craftableSizes = ALL_SIZES.filter(s => !affixDef.blockedSizes.includes(s));
-    const locationsText = craftableSizes.length === ALL_SIZES.length ? 'All Sizes' : craftableSizes.join(', ');
+    const locationsText = craftableSizes.length === ALL_SIZES.length ? t('allSizes', lang) : craftableSizes.join(', ');
 
     return (
       <div key={affixDef.internalName} className={`affix-item ${hoverClass}`}>
@@ -142,25 +265,25 @@ export default function App() {
             <span className={`affix-rarity ${rarityClass}`}>{displayRarity}</span>
           </div>
           {tierStats ? (
-            <div className="affix-desc" dangerouslySetInnerHTML={formatListDescription(localDesc, min, max, localStat)} />
+            <div className="affix-desc" dangerouslySetInnerHTML={formatListDescription(localDesc, min, max, localStat, t('roll', lang))} />
           ) : (
-            <div className="affix-desc" style={{ color: '#ef4444' }}>Does not roll at this tier</div>
+            <div className="affix-desc" style={{ color: '#ef4444' }}>{t('noRolls', lang)}</div>
           )}
           {activeTab === 'Database' && (
             <div className="affix-locations">
-              Craftable on: <strong>{locationsText}</strong>
+              {t('craftableOn', lang)} <strong>{locationsText}</strong>
             </div>
           )}
         </div>
         <div className="affix-stats">
-          {chance !== undefined && chance > 0 && <div className="affix-chance">{chance.toFixed(2)}% chance</div>}
+          {chance !== undefined && chance > 0 && <div className="affix-chance">{chance.toFixed(2)}% {t('chance', lang)}</div>}
         </div>
       </div>
     );
   };
 
   const renderAffixGroup = (title: string, list: { affixDef: AffixData, chance: number }[]) => {
-    if (list.length === 0 && searchQuery) return null; // Don't show empty headers if searching
+    if (list.length === 0 && searchQuery) return null;
     if (list.length === 0) return null;
     list.sort((a, b) => b.chance - a.chance);
 
@@ -174,10 +297,8 @@ export default function App() {
     );
   };
 
-  // Database Tab Logic
   let filteredAffixes = allValidAffixes.filter(a => matchesSearch(a));
   
-  // Sort Logic for All Affixes list
   filteredAffixes.sort((a, b) => {
     const nameA = a.nameLocalizations[lang] || a.nameLocalizations['en'] || '';
     const nameB = b.nameLocalizations[lang] || b.nameLocalizations['en'] || '';
@@ -187,9 +308,12 @@ export default function App() {
     } else if (sortBy === 'NameZA') {
       return nameB.localeCompare(nameA);
     } else if (sortBy === 'Rarity') {
-      // Sort Rare (Special) first, then Common
       if (a.rarity === b.rarity) return nameA.localeCompare(nameB);
       return a.rarity === 'Special' ? -1 : 1;
+    } else if (['Corrupted', 'FaithImbued', 'FuryImbued', 'DisciplineImbued'].includes(sortBy)) {
+      if (a.implicitCategory === sortBy && b.implicitCategory !== sortBy) return -1;
+      if (b.implicitCategory === sortBy && a.implicitCategory !== sortBy) return 1;
+      return nameA.localeCompare(nameB);
     }
     return 0;
   });
@@ -198,20 +322,20 @@ export default function App() {
     <div className="app-container">
       <header className="header">
         <div className="title-container">
-          <h2>Relic Affix Database</h2>
+          <h2>{t('title', lang)}</h2>
           <div className="tabs" style={{marginTop: '1.25rem'}}>
             <button className={`tab-button ${activeTab === 'Simulator' ? 'active' : ''}`} onClick={() => setActiveTab('Simulator')}>
-              Crafting Pools
+              {t('tabSimulator', lang)}
             </button>
             <button className={`tab-button ${activeTab === 'Database' ? 'active' : ''}`} onClick={() => setActiveTab('Database')}>
-              All Affixes
+              {t('tabDatabase', lang)}
             </button>
           </div>
         </div>
         
         <div className="global-controls">
           <div className="control-group">
-            <label>Language</label>
+            <label>{t('language', lang)}</label>
             <select value={lang} onChange={(e) => setLang(e.target.value)}>
               {LANGUAGES.map(l => <option key={l.code} value={l.code}>{l.label}</option>)}
             </select>
@@ -221,18 +345,18 @@ export default function App() {
 
       <div className="controls">
         <div className="control-group">
-          <label>Tier Rolls</label>
+          <label>{t('tierRolls', lang)}</label>
           <select value={tier} onChange={(e) => setTier(e.target.value)}>
-            <option value="1">Tier 1</option>
-            <option value="2">Tier 2</option>
-            <option value="3">Tier 3</option>
-            <option value="4">Tier 4</option>
+            <option value="1">{t('tier', lang)} 1</option>
+            <option value="2">{t('tier', lang)} 2</option>
+            <option value="3">{t('tier', lang)} 3</option>
+            <option value="4">{t('tier', lang)} 4</option>
           </select>
         </div>
         
         {activeTab === 'Simulator' && (
           <div className="control-group">
-            <label>Relic Size</label>
+            <label>{t('relicSize', lang)}</label>
             <select value={size} onChange={(e) => setSize(e.target.value)}>
               {sizesAvailable.map(s => {
                 const labels: Record<string, string> = {
@@ -249,21 +373,25 @@ export default function App() {
         
         {activeTab === 'Database' && (
           <div className="control-group">
-            <label>Sort By</label>
+            <label>{t('sortBy', lang)}</label>
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-              <option value="NameAZ">Name (A-Z)</option>
-              <option value="NameZA">Name (Z-A)</option>
-              <option value="Rarity">Rarity</option>
+              <option value="NameAZ">{t('nameAZ', lang)}</option>
+              <option value="NameZA">{t('nameZA', lang)}</option>
+              <option value="Rarity">{t('rarity', lang)}</option>
+              <option value="Corrupted">{t('sortByCorrupted', lang)}</option>
+              <option value="FaithImbued">{t('sortByFaith', lang)}</option>
+              <option value="FuryImbued">{t('sortByFury', lang)}</option>
+              <option value="DisciplineImbued">{t('sortByDiscipline', lang)}</option>
             </select>
           </div>
         )}
 
         <div className="control-group" style={{marginLeft: 'auto'}}>
-          <label>Search Affixes</label>
+          <label>{t('searchLabel', lang)}</label>
           <input 
             type="text" 
             className="search-bar" 
-            placeholder="Search by name, stat, or description..." 
+            placeholder={t('searchPlaceholder', lang)} 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -274,18 +402,18 @@ export default function App() {
         <div className="database-panel">
           {activeTab === 'Simulator' ? (
             <div className="db-content">
-              {renderAffixGroup("Rare Affixes", rareAffixesList)}
-              {renderAffixGroup("Prefixes", primaryAffixesList)}
-              {renderAffixGroup("Suffixes", secondaryAffixesList)}
+              {renderAffixGroup(t('rareAffixes', lang), rareAffixesList)}
+              {renderAffixGroup(t('prefixes', lang), primaryAffixesList)}
+              {renderAffixGroup(t('suffixes', lang), secondaryAffixesList)}
               {rareAffixesList.length === 0 && primaryAffixesList.length === 0 && secondaryAffixesList.length === 0 && (
-                <div style={{color: 'var(--text-muted)'}}>No affixes found matching your search.</div>
+                <div style={{color: 'var(--text-muted)'}}>{t('noResults', lang)}</div>
               )}
             </div>
           ) : (
             <div className="db-content">
               <div className="affix-list">
                 {filteredAffixes.map(affixDef => renderAffixItem(affixDef))}
-                {filteredAffixes.length === 0 && <div style={{color: 'var(--text-muted)'}}>No affixes found matching your search.</div>}
+                {filteredAffixes.length === 0 && <div style={{color: 'var(--text-muted)'}}>{t('noResults', lang)}</div>}
               </div>
             </div>
           )}

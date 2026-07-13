@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const exportDir = '../../hellclock-data-export-release-2.0';
+const exportDir = '../../../hellclock-data-export-release-2.0';
 const dataDir = path.join(exportDir, 'data');
 const publicAssetsDir = './public/assets';
 
@@ -13,6 +13,28 @@ console.log('Reading data files...');
 const relicAffixes = JSON.parse(fs.readFileSync(path.join(dataDir, 'Relic Affixes.json'), 'utf8'))['Relic Affixes'];
 const relics = JSON.parse(fs.readFileSync(path.join(dataDir, 'Relics.json'), 'utf8'))['Relics'];
 const statsData = JSON.parse(fs.readFileSync(path.join(dataDir, 'Stats.json'), 'utf8'))['Stats'];
+const relicConfig = JSON.parse(fs.readFileSync(path.join(dataDir, 'Relic Inventory Config.json'), 'utf8'));
+
+// Build a map of Implicit Affix ID -> Category (e.g. FuryImbued, Corrupted)
+const implicitCategoryMap = {};
+const implicitAllowedSizesMap = {};
+if (relicConfig && relicConfig.relicSizeConfigs) {
+    for (const [sizeName, size] of Object.entries(relicConfig.relicSizeConfigs)) {
+        if (size.implicitAffixPool) {
+            for (const [category, entries] of Object.entries(size.implicitAffixPool)) {
+                for (const entry of entries) {
+                    const match = entry.value.match(/\[(\d+)\]/);
+                    if (match) {
+                        const id = match[1];
+                        implicitCategoryMap[id] = category;
+                        if (!implicitAllowedSizesMap[id]) implicitAllowedSizesMap[id] = new Set();
+                        implicitAllowedSizesMap[id].add(sizeName);
+                    }
+                }
+            }
+        }
+    }
+}
 
 // Build a fast lookup dictionary for Stat localization based on eStatDefinition internal name
 const statsDict = {};
@@ -56,6 +78,22 @@ for (const affix of relicAffixes) {
     const nameLoc = parseLocalization(affix.nameLocalizationKey);
     const descLoc = parseLocalization(affix.description);
     
+    let skillName = null;
+    if (affix.skillDefinition && affix.skillDefinition.name) {
+        skillName = pascalToSpaced(affix.skillDefinition.name.replace('Skill Definition', '').trim());
+    }
+
+    const implicitCategory = implicitCategoryMap[affix.id] || null;
+    
+    if (implicitCategory) {
+        const allowedSizes = implicitAllowedSizesMap[affix.id] || new Set();
+        const allSizes = ['Small', 'Large', 'Grand', 'Exalted'];
+        const implicitBlocked = allSizes.filter(s => !allowedSizes.has(s));
+        for (const s of implicitBlocked) {
+            if (!blockedSizes.includes(s)) blockedSizes.push(s);
+        }
+    }
+    
     // Attempt to resolve the stat name dictionary
     const statTarget = affix.eStatDefinition || affix.eStatRegen || affix.name;
     let statLoc = {};
@@ -63,7 +101,6 @@ for (const affix of relicAffixes) {
     if (statsDict[statTarget]) {
         statLoc = statsDict[statTarget];
     } else {
-        // Fallback: Use english pascal spaced for all languages if missing from Stats.json
         const fallbackName = pascalToSpaced(statTarget);
         statLoc = { 'en': fallbackName }; 
     }
@@ -75,6 +112,8 @@ for (const affix of relicAffixes) {
         descLocalizations: descLoc,
         statLocalizations: statLoc,
         rarity: affix.eAffixRarity,
+        implicitCategory: implicitCategory,
+        skillName: skillName,
         blockedSizes: blockedSizes,
         tiers: tiers
     };
