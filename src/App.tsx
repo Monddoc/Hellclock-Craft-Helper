@@ -234,7 +234,15 @@ export default function App() {
           <div className="control-group">
             <label>Relic Size</label>
             <select value={size} onChange={(e) => setSize(e.target.value)}>
-              {sizesAvailable.map(s => <option key={s} value={s}>{s} Relic</option>)}
+              {sizesAvailable.map(s => {
+                const labels: Record<string, string> = {
+                  Small: 'Small (1x1)',
+                  Large: 'Large (2x1)',
+                  Grand: 'Grand (2x2)',
+                  Exalted: 'Exalted (4x1)'
+                };
+                return <option key={s} value={s}>{labels[s] || s} Relic</option>
+              })}
             </select>
           </div>
         )}
