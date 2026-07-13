@@ -77,7 +77,7 @@ button {
 }
 
 .global-controls select {
-  background: var(--bg-panel);
+  background-color: var(--bg-panel) !important;
   border-radius: 8px;
   border: 1px solid var(--border-color);
   backdrop-filter: blur(12px);
@@ -156,7 +156,15 @@ button {
 }
 
 .control-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
   padding-right: 2.5rem;
+  min-width: 140px;
 }
 
 .control-group select option {
@@ -505,6 +513,12 @@ button {
 
 .icon-filter-btn.active {
   transform: translateY(-2px);
+}
+
+.icon-filter-btn.active.common { 
+  border-color: #cbd5e1; 
+  background: rgba(255, 255, 255, 0.15); 
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15), inset 0 0 10px rgba(255, 255, 255, 0.1); 
 }
 
 .icon-filter-btn.active.special { 

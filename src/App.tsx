@@ -43,12 +43,12 @@ interface AppData {
 const ALL_SIZES = ['Small', 'Large', 'Grand', 'Exalted'];
 const LANGUAGES = [
   { code: 'en', label: 'English' },
-  { code: 'de', label: 'Deutsch' },
+  { code: 'pt-br', label: 'Português (BR)' },
   { code: 'es', label: 'Español' },
   { code: 'fr', label: 'Français' },
+  { code: 'de', label: 'Deutsch' },
   { code: 'ja', label: '日本語' },
   { code: 'pl', label: 'Polski' },
-  { code: 'pt-br', label: 'Português (BR)' },
   { code: 'ru', label: 'Русский' },
   { code: 'uk', label: 'Українська' },
   { code: 'zh-cn', label: '简体中文' }
@@ -75,6 +75,7 @@ const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     chance: 'chance',
     noResults: 'No affixes found matching your search.',
     rareAffixes: 'Rare Affixes',
+    commonAffixes: 'Common Affixes',
     prefixes: 'Prefixes',
     suffixes: 'Suffixes',
     roll: 'Roll:',
@@ -104,6 +105,7 @@ const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     chance: 'chance',
     noResults: 'Nenhum afixo encontrado.',
     rareAffixes: 'Afixos Raros',
+    commonAffixes: 'Afixos Comuns',
     prefixes: 'Prefixos',
     suffixes: 'Sufixos',
     roll: 'Valor:',
@@ -129,6 +131,7 @@ const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     chance: 'probabilidad',
     noResults: 'No se encontraron afijos.',
     rareAffixes: 'Afijos Raros',
+    commonAffixes: 'Afijos Comunes',
     prefixes: 'Prefijos',
     suffixes: 'Sufijos',
     roll: 'Valor:',
@@ -149,6 +152,7 @@ const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     chance: 'Chance',
     noResults: 'Keine Affixe gefunden.',
     rareAffixes: 'Seltene Affixe',
+    commonAffixes: 'Gewöhnliche Affixe',
     prefixes: 'Präfixe',
     suffixes: 'Suffixe',
     roll: 'Wert:',
@@ -200,7 +204,19 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
   const debouncedSearchQuery = useDebounce(searchQuery, 150);
   const [lang, setLang] = useState<string>(searchParams.get('lang') || 'en');
-  const [activeCategory, setActiveCategory] = useState<string | null>(searchParams.get('category') || null);
+  
+  const parseUrlCategory = (urlCat: string | null) => {
+    if (!urlCat) return null;
+    const cat = urlCat.toLowerCase();
+    if (cat === 'rare') return 'Special';
+    if (cat === 'common') return 'Common';
+    if (cat === 'corrupted') return 'Corrupted';
+    if (cat === 'faithimbued') return 'FaithImbued';
+    if (cat === 'furyimbued') return 'FuryImbued';
+    if (cat === 'disciplineimbued') return 'DisciplineImbued';
+    return urlCat;
+  };
+  const [activeCategory, setActiveCategory] = useState<string | null>(parseUrlCategory(searchParams.get('category')));
   
   const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({});
   const [favorites, setFavorites] = useState<string[]>(() => {
@@ -223,10 +239,17 @@ export default function App() {
     const params = new URLSearchParams();
     if (activeTab !== 'Simulator') params.set('tab', activeTab);
     if (lang !== 'en') params.set('lang', lang);
-    if (tier !== '4') params.set('tier', tier);
-    if (size !== 'Exalted') params.set('size', size);
     if (searchQuery) params.set('q', searchQuery);
-    if (activeCategory) params.set('category', activeCategory);
+    
+    if (activeTab === 'Simulator') {
+      if (tier !== '4') params.set('tier', tier);
+      if (size !== 'Exalted') params.set('size', size);
+    } else if (activeTab === 'Database') {
+      if (activeCategory) {
+        const urlCat = activeCategory === 'Special' ? 'rare' : activeCategory.toLowerCase();
+        params.set('category', urlCat);
+      }
+    }
     
     const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
     window.history.replaceState({}, '', newUrl);
@@ -421,7 +444,9 @@ export default function App() {
     filteredAffixes = filteredAffixes.filter(a => favorites.includes(a.internalName));
   }
   if (activeCategory === 'Special') {
-    filteredAffixes = filteredAffixes.filter(a => a.rarity === 'Special');
+    filteredAffixes = filteredAffixes.filter(a => a.rarity === 'Special' && !a.implicitCategory);
+  } else if (activeCategory === 'Common') {
+    filteredAffixes = filteredAffixes.filter(a => a.rarity === 'Common' && !a.implicitCategory);
   } else if (activeCategory) {
     filteredAffixes = filteredAffixes.filter(a => a.implicitCategory === activeCategory);
   }
@@ -495,20 +520,23 @@ export default function App() {
           <div className="control-group">
             <label style={{ visibility: 'hidden' }}>Icons</label>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5rem' }}>
+              <button className={`icon-filter-btn ${activeCategory === 'Common' ? 'active common' : ''}`} onClick={() => setActiveCategory(activeCategory === 'Common' ? null : 'Common')} title={t('commonAffixes', lang)}>
+                <img src="./assets/icons/IconTool_Tinkering.png" alt="Common" />
+              </button>
               <button className={`icon-filter-btn ${activeCategory === 'Special' ? 'active special' : ''}`} onClick={() => setActiveCategory(activeCategory === 'Special' ? null : 'Special')} title={t('rareAffixes', lang)}>
                 <img src="./assets/icons/IconTool_GreaterEnhancement.png" alt="Rare" />
-              </button>
-              <button className={`icon-filter-btn ${activeCategory === 'Corrupted' ? 'active corrupted' : ''}`} onClick={() => setActiveCategory(activeCategory === 'Corrupted' ? null : 'Corrupted')} title={t('sortByCorrupted', lang)}>
-                <img src="./assets/icons/IconTool_Corrupted.png" alt="Corrupted" />
-              </button>
-              <button className={`icon-filter-btn ${activeCategory === 'FaithImbued' ? 'active faith' : ''}`} onClick={() => setActiveCategory(activeCategory === 'FaithImbued' ? null : 'FaithImbued')} title={t('sortByFaith', lang)}>
-                <img src="./assets/icons/IconTool_Faith.png" alt="Faith Imbued" />
               </button>
               <button className={`icon-filter-btn ${activeCategory === 'FuryImbued' ? 'active fury' : ''}`} onClick={() => setActiveCategory(activeCategory === 'FuryImbued' ? null : 'FuryImbued')} title={t('sortByFury', lang)}>
                 <img src="./assets/icons/IconTool_Fury.png" alt="Fury Imbued" />
               </button>
+              <button className={`icon-filter-btn ${activeCategory === 'FaithImbued' ? 'active faith' : ''}`} onClick={() => setActiveCategory(activeCategory === 'FaithImbued' ? null : 'FaithImbued')} title={t('sortByFaith', lang)}>
+                <img src="./assets/icons/IconTool_Faith.png" alt="Faith Imbued" />
+              </button>
               <button className={`icon-filter-btn ${activeCategory === 'DisciplineImbued' ? 'active discipline' : ''}`} onClick={() => setActiveCategory(activeCategory === 'DisciplineImbued' ? null : 'DisciplineImbued')} title={t('sortByDiscipline', lang)}>
                 <img src="./assets/icons/IconTool_Discipline.png" alt="Discipline Imbued" />
+              </button>
+              <button className={`icon-filter-btn ${activeCategory === 'Corrupted' ? 'active corrupted' : ''}`} onClick={() => setActiveCategory(activeCategory === 'Corrupted' ? null : 'Corrupted')} title={t('sortByCorrupted', lang)}>
+                <img src="./assets/icons/IconTool_Corrupted.png" alt="Corrupted" />
               </button>
             </div>
           </div>
