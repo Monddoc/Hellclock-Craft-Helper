@@ -241,7 +241,7 @@ export default function App() {
                   Grand: 'Grand (2x2)',
                   Exalted: 'Exalted (4x1)'
                 };
-                return <option key={s} value={s}>{labels[s] || s} Relic</option>
+                return <option key={s} value={s}>{labels[s] || s}</option>
               })}
             </select>
           </div>
