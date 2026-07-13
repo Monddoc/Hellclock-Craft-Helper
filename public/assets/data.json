@@ -42,7 +42,9 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small"
+      ],
       "tiers": {
         "1": {
           "min": 0.005,
@@ -104,7 +106,9 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small"
+      ],
       "tiers": {
         "1": {
           "min": 0.005,
@@ -223,7 +227,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.04,
@@ -285,7 +293,9 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small"
+      ],
       "tiers": {
         "1": {
           "min": 0.05,
@@ -471,7 +481,9 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 90,
@@ -595,7 +607,9 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 50,
@@ -657,7 +671,9 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small"
+      ],
       "tiers": {
         "1": {
           "min": 0.02,
@@ -843,7 +859,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.05,
@@ -905,7 +925,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.02,
@@ -967,7 +991,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.02,
@@ -1029,7 +1057,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.02,
@@ -1091,7 +1123,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.03,
@@ -1153,7 +1189,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Large",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.05,
@@ -1215,7 +1255,9 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small"
+      ],
       "tiers": {
         "1": {
           "min": 1.075,
@@ -1277,7 +1319,9 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small"
+      ],
       "tiers": {
         "1": {
           "min": 0.05,
@@ -1339,7 +1383,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -1401,7 +1449,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -1463,7 +1515,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -1525,7 +1581,11 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small",
+        "Grand",
+        "Exalted"
+      ],
       "tiers": {
         "1": {
           "min": 0.1,
@@ -1649,7 +1709,9 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small"
+      ],
       "tiers": {
         "1": {
           "min": 1.08,
@@ -1711,7 +1773,10 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 1.1,
@@ -1773,7 +1838,10 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 1.09,
@@ -2049,13 +2117,13 @@
         "zh-cn": "<style=\"TooltipValue\">{1}</style> {0}"
       },
       "statLocalizations": {
-        "de": "Manakosten für Fertigkeit",
-        "en": "Skill Mana Cost",
-        "es": "Costo de maná de habilidades",
-        "fr": "Coût en ferveur des comp.",
+        "de": "Reduzierte Manakosten für Fertigkeiten",
+        "en": "Reduced Skills Mana Cost",
+        "es": "Coste de Maná de Habilidades Reducido",
+        "fr": "Coût en mana des compétences réduit",
         "ja": "スキルのマナコスト",
         "pl": "Koszt umiejętności w manie",
-        "pt-br": "Custo Geral de Energia",
+        "pt-br": "Custo de Mana de Habilidades Reduzido",
         "ru": "Расход маны на навык",
         "uk": "Витрати мани на навичку",
         "zh-cn": "技能法力消耗"
@@ -2063,23 +2131,25 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small"
+      ],
       "tiers": {
         "1": {
-          "min": 0.99,
-          "max": 0.95
+          "min": 0.010000000000000009,
+          "max": 0.050000000000000044
         },
         "2": {
-          "min": 0.95,
-          "max": 0.93
+          "min": 0.050000000000000044,
+          "max": 0.06999999999999995
         },
         "3": {
-          "min": 0.93,
-          "max": 0.91
+          "min": 0.06999999999999995,
+          "max": 0.08999999999999997
         },
         "4": {
-          "min": 0.91,
-          "max": 0.89
+          "min": 0.08999999999999997,
+          "max": 0.10999999999999999
         }
       }
     },
@@ -2605,16 +2675,16 @@
         "zh-cn": "坚强"
       },
       "descLocalizations": {
-        "de": "Du erleidest {0} Schaden durch Gegner in direkter Nähe.",
-        "en": "Take {0} damage from Close Enemies",
-        "es": "Recibe {0} de daño de enemigos cercanos.",
-        "fr": "Vous subissez {0} de dégâts des ennemis proches",
-        "ja": "接近している敵からのダメージは{0}となる。",
-        "pl": "Otrzymujesz {0} obrażeń od pobliskich wrogów",
-        "pt-br": "Recebe {0} de dano de inimigos próximos",
-        "ru": "Вы получаете на {0} меньше урона от ближайших врагов.",
-        "uk": "Ви отримуєте {0} шкоди від супротивників поблизу",
-        "zh-cn": "受到近距离敌人的伤害减少 {0}"
+        "de": "Schaden durch Gegner in direkter Nähe um {0} reduziert",
+        "en": "Reduced damage from Close Enemies by {0}",
+        "es": "Daño de enemigos cercanos reducido en {0}",
+        "fr": "Dégâts subis des ennemis proches réduits de {0}",
+        "ja": "近接する敵からのダメージが{0}減少",
+        "pl": "Obrażenia od pobliskich wrogów zmniejszone o {0}",
+        "pt-br": "Dano de inimigos próximos reduzido em {0}",
+        "ru": "Урон от ближайших врагов снижен на {0}",
+        "uk": "Шкода від ближніх ворогів знижена на {0}",
+        "zh-cn": "受到近战敌人的伤害减少{0}"
       },
       "statLocalizations": {
         "en": "All  Skills -  Rare -  Less  Damage  Close  Enemies  Affix"
@@ -2628,20 +2698,20 @@
       ],
       "tiers": {
         "1": {
-          "min": 0.97,
-          "max": 0.96
+          "min": 0.030000000000000027,
+          "max": 0.040000000000000036
         },
         "2": {
-          "min": 0.96,
-          "max": 0.95
+          "min": 0.040000000000000036,
+          "max": 0.050000000000000044
         },
         "3": {
-          "min": 0.95,
-          "max": 0.94
+          "min": 0.050000000000000044,
+          "max": 0.06000000000000005
         },
         "4": {
-          "min": 0.94,
-          "max": 0.93
+          "min": 0.06000000000000005,
+          "max": 0.06999999999999995
         }
       }
     },
@@ -4833,13 +4903,13 @@
         "zh-cn": "<style=\"TooltipValue\">{1}</style> {0}"
       },
       "statLocalizations": {
-        "de": "Manakosten für Fertigkeit",
-        "en": "Skill Mana Cost",
-        "es": "Costo de maná de habilidades",
-        "fr": "Coût en ferveur des comp.",
+        "de": "Reduzierte Manakosten für Fertigkeiten",
+        "en": "Reduced Skills Mana Cost",
+        "es": "Coste de Maná de Habilidades Reducido",
+        "fr": "Coût en mana des compétences réduit",
         "ja": "スキルのマナコスト",
         "pl": "Koszt umiejętności w manie",
-        "pt-br": "Custo Geral de Energia",
+        "pt-br": "Custo de Mana de Habilidades Reduzido",
         "ru": "Расход маны на навык",
         "uk": "Витрати мани на навичку",
         "zh-cn": "技能法力消耗"
@@ -4853,20 +4923,20 @@
       ],
       "tiers": {
         "1": {
-          "min": 0.98,
-          "max": 0.97
+          "min": 0.020000000000000018,
+          "max": 0.030000000000000027
         },
         "2": {
-          "min": 0.97,
-          "max": 0.96
+          "min": 0.030000000000000027,
+          "max": 0.040000000000000036
         },
         "3": {
-          "min": 0.96,
-          "max": 0.95
+          "min": 0.040000000000000036,
+          "max": 0.050000000000000044
         },
         "4": {
-          "min": 0.95,
-          "max": 0.94
+          "min": 0.050000000000000044,
+          "max": 0.06000000000000005
         }
       }
     },
@@ -4977,7 +5047,10 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.2,
@@ -5039,7 +5112,10 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.2,
@@ -5101,7 +5177,10 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.2,
@@ -5163,7 +5242,10 @@
       "rarity": "Common",
       "implicitCategory": null,
       "skillName": null,
-      "blockedSizes": [],
+      "blockedSizes": [
+        "Small",
+        "Large"
+      ],
       "tiers": {
         "1": {
           "min": 0.2,

@@ -141,6 +141,15 @@ for (const affix of relicAffixes) {
         }
     }
     
+    // DYNAMIC BLOCKED SIZES CHECK (for all affixes)
+    const allSizesCheck = ['Small', 'Large', 'Grand', 'Exalted'];
+    for (const s of allSizesCheck) {
+        if (!sizesData[s]) continue;
+        if (!sizesData[s].primaryPool[id] && !sizesData[s].secondaryPool[id] && !implicitCategory && affix.eAffixRarity !== 'Special') {
+            if (!blockedSizes.includes(s)) blockedSizes.push(s);
+        }
+    }
+    
     // Attempt to resolve the stat name dictionary
     const statTarget = affix.eStatDefinition || affix.eStatRegen || affix.name;
     let statLoc = {};
@@ -157,6 +166,39 @@ for (const affix of relicAffixes) {
             fallbackName = fallbackName.substring(5, fallbackName.length - 1);
         }
         statLoc = { 'en': fallbackName }; 
+    }
+    
+    // INVERTED MATH FIX
+    if (id === 'Mana Cost MultiplierAffix' || id === 'All Skills - Rare - Less Damage Close Enemies Affix' || id === 'Stat - Implicit - Skills Mana Cost') {
+        for (const t in tiers) {
+            tiers[t].min = 1 - tiers[t].min;
+            tiers[t].max = 1 - tiers[t].max;
+        }
+        
+        if (id === 'All Skills - Rare - Less Damage Close Enemies Affix') {
+            descLoc['en'] = "Reduced damage from Close Enemies by {0}";
+            descLoc['pt-br'] = "Dano de inimigos próximos reduzido em {0}";
+            descLoc['es'] = "Daño de enemigos cercanos reducido en {0}";
+            descLoc['fr'] = "Dégâts subis des ennemis proches réduits de {0}";
+            descLoc['de'] = "Schaden durch Gegner in direkter Nähe um {0} reduziert";
+            descLoc['pl'] = "Obrażenia od pobliskich wrogów zmniejszone o {0}";
+            descLoc['ru'] = "Урон от ближайших врагов снижен на {0}";
+            descLoc['ja'] = "近接する敵からのダメージが{0}減少";
+            descLoc['uk'] = "Шкода від ближніх ворогів знижена на {0}";
+            descLoc['zh-cn'] = "受到近战敌人的伤害减少{0}";
+        } else if (id === 'Mana Cost MultiplierAffix') {
+            statLoc['en'] = "Reduced Mana Cost Multiplier";
+            statLoc['pt-br'] = "Multiplicador de Custo de Mana Reduzido";
+            statLoc['es'] = "Multiplicador de Coste de Maná Reducido";
+            statLoc['de'] = "Reduzierter Manakosten-Multiplikator";
+            statLoc['fr'] = "Multiplicateur de coût en mana réduit";
+        } else if (id === 'Stat - Implicit - Skills Mana Cost') {
+            statLoc['en'] = "Reduced Skills Mana Cost";
+            statLoc['pt-br'] = "Custo de Mana de Habilidades Reduzido";
+            statLoc['es'] = "Coste de Maná de Habilidades Reducido";
+            statLoc['de'] = "Reduzierte Manakosten für Fertigkeiten";
+            statLoc['fr'] = "Coût en mana des compétences réduit";
+        }
     }
     
     extractedAffixes[id] = {

@@ -373,7 +373,7 @@ export default function App() {
     if (list.length === 0) return null;
     list.sort((a, b) => b.chance - a.chance);
 
-    const isCollapsed = collapsedSections[title] || false;
+    const isCollapsed = (collapsedSections[title] || false) && !debouncedSearchQuery;
     const toggleSection = () => setCollapsedSections(prev => ({...prev, [title]: !prev[title]}));
 
     return (
