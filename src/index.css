@@ -20,9 +20,19 @@
 
 body {
   font-family: var(--font-sans);
-  background: radial-gradient(circle at top right, #111827, var(--bg-dark));
+  background-color: var(--bg-dark);
+  background-image: 
+    linear-gradient(rgba(9, 10, 15, 0.85), rgba(9, 10, 15, 0.85)),
+    url('/assets/images/Iansa_linha.png'), 
+    url('/assets/images/Guaraci_line.png'), 
+    radial-gradient(circle at top right, #111827, var(--bg-dark));
+  background-position: center, left center, right center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: cover, contain, contain, cover;
+  background-attachment: fixed;
   color: var(--text-main);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -66,14 +76,22 @@ button {
   gap: 1rem;
 }
 
+.global-controls select {
+  background: var(--bg-panel);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
 .tabs {
   display: flex;
   gap: 0.5rem;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--bg-panel);
   padding: 0.5rem;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 }
 
 .tab-button {
@@ -100,12 +118,14 @@ button {
   top: 1.5rem;
   z-index: 50;
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   background: var(--bg-panel);
   padding: 1.25rem 2rem;
   border-radius: 16px;
   border: 1px solid var(--border-color);
   align-items: center;
+  justify-content: flex-start;
   backdrop-filter: blur(12px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
 }
@@ -135,13 +155,23 @@ button {
   transition: all 0.2s;
 }
 
+.control-group select {
+  padding-right: 2.5rem;
+}
+
 .control-group select option {
   background-color: #1a1d24;
   color: var(--text-main);
 }
 
+.control-group[style*="marginLeft: auto"] {
+  flex: 1;
+  max-width: 350px;
+  min-width: 250px;
+}
+
 .search-bar {
-  width: 320px;
+  width: 100%;
 }
 
 .control-group select:focus, .search-bar:focus {
@@ -329,7 +359,7 @@ button {
 }
 
  /* Mobile Optimizations */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .app-container {
     padding: 1rem;
     gap: 1rem;
@@ -342,23 +372,27 @@ button {
   }
   
   .controls {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
     padding: 1rem;
     top: 0;
     border-radius: 0;
     margin: 0 -1rem;
+    gap: 1rem;
   }
   
-  .search-bar {
-    width: 100%;
-  }
-
   .control-group {
-    width: 100%;
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 120px;
+  }
+  
+  .control-group[style*="marginLeft: auto"] {
+    flex: 1 1 100%;
+    margin-left: 0 !important;
   }
 
-  .control-group select {
+  .search-bar {
     width: 100%;
   }
 
@@ -380,7 +414,7 @@ button {
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.25rem;
+  padding: 0.5rem; /* Increased for touch targets */
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -433,4 +467,72 @@ button {
 .affix-item.item-special {
   background: rgba(251, 191, 36, 0.08) !important;
   border: 1px solid rgba(251, 191, 36, 0.25) !important;
+}
+
+.icon-filter-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-filter-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  transition: transform 0.2s;
+}
+
+.icon-filter-btn:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.icon-filter-btn:hover img {
+  transform: scale(1.1);
+}
+
+.icon-filter-btn.active {
+  transform: translateY(-2px);
+}
+
+.icon-filter-btn.active.special { 
+  border-color: var(--accent-gold); 
+  background: rgba(251, 191, 36, 0.15); 
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.25), inset 0 0 10px rgba(251, 191, 36, 0.1); 
+}
+
+.icon-filter-btn.active.corrupted { 
+  border-color: #c084fc; 
+  background: rgba(168, 85, 247, 0.15); 
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.25), inset 0 0 10px rgba(168, 85, 247, 0.1); 
+}
+
+.icon-filter-btn.active.faith { 
+  border-color: #60a5fa; 
+  background: rgba(96, 165, 250, 0.15); 
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.25), inset 0 0 10px rgba(96, 165, 250, 0.1); 
+}
+
+.icon-filter-btn.active.fury { 
+  border-color: #f87171; 
+  background: rgba(248, 113, 113, 0.15); 
+  box-shadow: 0 4px 12px rgba(248, 113, 113, 0.25), inset 0 0 10px rgba(248, 113, 113, 0.1); 
+}
+
+.icon-filter-btn.active.discipline { 
+  border-color: #34d399; 
+  background: rgba(52, 211, 153, 0.15); 
+  box-shadow: 0 4px 12px rgba(52, 211, 153, 0.25), inset 0 0 10px rgba(52, 211, 153, 0.1); 
 }

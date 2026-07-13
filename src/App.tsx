@@ -200,7 +200,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
   const debouncedSearchQuery = useDebounce(searchQuery, 150);
   const [lang, setLang] = useState<string>(searchParams.get('lang') || 'en');
-  const [sortBy, setSortBy] = useState<string>(searchParams.get('sort') || 'NameAZ');
+  const [activeCategory, setActiveCategory] = useState<string | null>(searchParams.get('category') || null);
   
   const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({});
   const [favorites, setFavorites] = useState<string[]>(() => {
@@ -226,11 +226,11 @@ export default function App() {
     if (tier !== '4') params.set('tier', tier);
     if (size !== 'Exalted') params.set('size', size);
     if (searchQuery) params.set('q', searchQuery);
-    if (sortBy !== 'NameAZ') params.set('sort', sortBy);
+    if (activeCategory) params.set('category', activeCategory);
     
     const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
     window.history.replaceState({}, '', newUrl);
-  }, [activeTab, lang, tier, size, searchQuery, sortBy]);
+  }, [activeTab, lang, tier, size, searchQuery, activeCategory]);
 
   useEffect(() => {
     fetch('./assets/data.json')
@@ -420,47 +420,45 @@ export default function App() {
   if (showFavorites) {
     filteredAffixes = filteredAffixes.filter(a => favorites.includes(a.internalName));
   }
+  if (activeCategory === 'Special') {
+    filteredAffixes = filteredAffixes.filter(a => a.rarity === 'Special');
+  } else if (activeCategory) {
+    filteredAffixes = filteredAffixes.filter(a => a.implicitCategory === activeCategory);
+  }
   
   filteredAffixes.sort((a, b) => {
     const nameA = a.nameLocalizations[lang] || a.nameLocalizations['en'] || '';
     const nameB = b.nameLocalizations[lang] || b.nameLocalizations['en'] || '';
-    
-    if (sortBy === 'NameAZ') {
-      return nameA.localeCompare(nameB);
-    } else if (sortBy === 'NameZA') {
-      return nameB.localeCompare(nameA);
-    } else if (sortBy === 'Rarity') {
-      if (a.rarity === b.rarity) return nameA.localeCompare(nameB);
-      return a.rarity === 'Special' ? -1 : 1;
-    } else if (['Corrupted', 'FaithImbued', 'FuryImbued', 'DisciplineImbued'].includes(sortBy)) {
-      if (a.implicitCategory === sortBy && b.implicitCategory !== sortBy) return -1;
-      if (b.implicitCategory === sortBy && a.implicitCategory !== sortBy) return 1;
-      return nameA.localeCompare(nameB);
-    }
-    return 0;
+    return nameA.localeCompare(nameB);
   });
 
   return (
     <div className="app-container">
-      <header className="header">
-        <div className="title-container">
-          <h2>{t('title', lang)}</h2>
-          <div className="tabs" style={{marginTop: '1.25rem'}}>
-            <button className={`tab-button ${activeTab === 'Simulator' ? 'active' : ''}`} onClick={() => setActiveTab('Simulator')}>
+      <header className="header" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
+        <h2 style={{ textAlign: 'center', marginBottom: '1rem', fontSize: '2.5rem' }}>{t('title', lang)}</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', width: '100%', flexWrap: 'wrap', gap: '1rem' }}>
+          <div className="tabs">
+            <button 
+              className={`tab-button ${activeTab === 'Simulator' ? 'active' : ''}`}
+              onClick={() => setActiveTab('Simulator')}
+            >
               {t('tabSimulator', lang)}
             </button>
-            <button className={`tab-button ${activeTab === 'Database' ? 'active' : ''}`} onClick={() => setActiveTab('Database')}>
+            <button 
+              className={`tab-button ${activeTab === 'Database' ? 'active' : ''}`}
+              onClick={() => setActiveTab('Database')}
+            >
               {t('tabDatabase', lang)}
             </button>
           </div>
-        </div>
-        
-        <div className="global-controls">
-          <div className="control-group">
-            <label>{t('language', lang)}</label>
-            <select value={lang} onChange={(e) => setLang(e.target.value)}>
-              {LANGUAGES.map(l => <option key={l.code} value={l.code}>{l.label}</option>)}
-            </select>
+          
+          <div className="global-controls">
+            <div className="control-group">
+              <label>{t('language', lang)}</label>
+              <select value={lang} onChange={(e) => setLang(e.target.value)}>
+                {LANGUAGES.map(l => <option key={l.code} value={l.code}>{l.label}</option>)}
+              </select>
+            </div>
           </div>
         </div>
       </header>
@@ -495,16 +493,24 @@ export default function App() {
         
         {activeTab === 'Database' && (
           <div className="control-group">
-            <label>{t('sortBy', lang)}</label>
-            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-              <option value="NameAZ">{t('nameAZ', lang)}</option>
-              <option value="NameZA">{t('nameZA', lang)}</option>
-              <option value="Rarity">{t('rarity', lang)}</option>
-              <option value="Corrupted">{t('sortByCorrupted', lang)}</option>
-              <option value="FaithImbued">{t('sortByFaith', lang)}</option>
-              <option value="FuryImbued">{t('sortByFury', lang)}</option>
-              <option value="DisciplineImbued">{t('sortByDiscipline', lang)}</option>
-            </select>
+            <label style={{ visibility: 'hidden' }}>Icons</label>
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5rem' }}>
+              <button className={`icon-filter-btn ${activeCategory === 'Special' ? 'active special' : ''}`} onClick={() => setActiveCategory(activeCategory === 'Special' ? null : 'Special')} title={t('rareAffixes', lang)}>
+                <img src="./assets/icons/IconTool_GreaterEnhancement.png" alt="Rare" />
+              </button>
+              <button className={`icon-filter-btn ${activeCategory === 'Corrupted' ? 'active corrupted' : ''}`} onClick={() => setActiveCategory(activeCategory === 'Corrupted' ? null : 'Corrupted')} title={t('sortByCorrupted', lang)}>
+                <img src="./assets/icons/IconTool_Corrupted.png" alt="Corrupted" />
+              </button>
+              <button className={`icon-filter-btn ${activeCategory === 'FaithImbued' ? 'active faith' : ''}`} onClick={() => setActiveCategory(activeCategory === 'FaithImbued' ? null : 'FaithImbued')} title={t('sortByFaith', lang)}>
+                <img src="./assets/icons/IconTool_Faith.png" alt="Faith Imbued" />
+              </button>
+              <button className={`icon-filter-btn ${activeCategory === 'FuryImbued' ? 'active fury' : ''}`} onClick={() => setActiveCategory(activeCategory === 'FuryImbued' ? null : 'FuryImbued')} title={t('sortByFury', lang)}>
+                <img src="./assets/icons/IconTool_Fury.png" alt="Fury Imbued" />
+              </button>
+              <button className={`icon-filter-btn ${activeCategory === 'DisciplineImbued' ? 'active discipline' : ''}`} onClick={() => setActiveCategory(activeCategory === 'DisciplineImbued' ? null : 'DisciplineImbued')} title={t('sortByDiscipline', lang)}>
+                <img src="./assets/icons/IconTool_Discipline.png" alt="Discipline Imbued" />
+              </button>
+            </div>
           </div>
         )}
 
