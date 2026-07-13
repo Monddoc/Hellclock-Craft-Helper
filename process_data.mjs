@@ -40,21 +40,63 @@ if (relicConfig && relicConfig.relicSizeConfigs) {
 const statsDict = {};
 for (const stat of statsData) {
     if (stat.localizedName) {
-        const langMap = {};
-        for (const loc of stat.localizedName) {
-            langMap[loc.langCode] = loc.langTranslation;
-        }
-        statsDict[stat.name] = langMap;
+        statsDict[stat.name] = parseLocalization(stat.localizedName);
     }
 }
 
 function parseLocalization(locArray) {
     if (!locArray) return {};
-    const map = {};
+    const result = {};
     for (const loc of locArray) {
-        map[loc.langCode] = loc.langTranslation;
+        if (loc.langCode && loc.langTranslation) {
+            let text = loc.langTranslation;
+            if (text.startsWith('TNF:(') && text.endsWith(')')) {
+                text = text.substring(5, text.length - 1);
+            }
+            text = text.replace(/Stat - Implicit - /ig, '');
+            result[loc.langCode] = text;
+        }
     }
-    return map;
+    return result;
+}
+
+const sizesData = {};
+const processedSizes = new Set();
+const craftableSet = new Set();
+
+for (const relic of relics) {
+    if (!relic.eRelicSize || processedSizes.has(relic.eRelicSize)) continue;
+    if (relic.type !== 'RelicBaseDefinition') continue;
+    
+    processedSizes.add(relic.eRelicSize);
+
+    const sizeData = {
+        primaryPool: {},
+        secondaryPool: {}
+    };
+
+    let totalPrimaryWeight = 0;
+    if (relic.primaryAffixPool) {
+        for (const entry of relic.primaryAffixPool) {
+            totalPrimaryWeight += entry.weight;
+            craftableSet.add(entry.value.name);
+        }
+        for (const entry of relic.primaryAffixPool) {
+            sizeData.primaryPool[entry.value.name] = { weight: entry.weight, chance: (entry.weight / totalPrimaryWeight) * 100 };
+        }
+    }
+
+    let totalSecondaryWeight = 0;
+    if (relic.secondaryAffixPool) {
+        for (const entry of relic.secondaryAffixPool) {
+            totalSecondaryWeight += entry.weight;
+            craftableSet.add(entry.value.name);
+        }
+        for (const entry of relic.secondaryAffixPool) {
+            sizeData.secondaryPool[entry.value.name] = { weight: entry.weight, chance: (entry.weight / totalSecondaryWeight) * 100 };
+        }
+    }
+    sizesData[relic.eRelicSize] = sizeData;
 }
 
 const extractedAffixes = {};
@@ -66,6 +108,12 @@ function pascalToSpaced(str) {
 
 for (const affix of relicAffixes) {
     const id = affix.name; // Use internal name as unique ID
+    const implicitCategory = implicitCategoryMap[affix.id] || null;
+    
+    // FILTER: Only extract affixes that can actually be crafted or dropped normally
+    if (!craftableSet.has(id) && !implicitCategory && affix.eAffixRarity !== 'Special') {
+        continue;
+    }
     const blockedSizes = Array.isArray(affix.blockCraftOnRelicSizes) ? affix.blockCraftOnRelicSizes : (affix.blockCraftOnRelicSizes ? [affix.blockCraftOnRelicSizes] : []);
     
     const tiers = {};
@@ -80,11 +128,10 @@ for (const affix of relicAffixes) {
     
     let skillName = null;
     if (affix.skillDefinition && affix.skillDefinition.name) {
-        skillName = pascalToSpaced(affix.skillDefinition.name.replace('Skill Definition', '').trim());
+        let rawName = affix.skillDefinition.name.replace(/Skill Definition/ig, '').replace(/Definition/ig, '').trim();
+        skillName = pascalToSpaced(rawName).trim() + ' Skill Level';
     }
 
-    const implicitCategory = implicitCategoryMap[affix.id] || null;
-    
     if (implicitCategory) {
         const allowedSizes = implicitAllowedSizesMap[affix.id] || new Set();
         const allSizes = ['Small', 'Large', 'Grand', 'Exalted'];
@@ -101,7 +148,14 @@ for (const affix of relicAffixes) {
     if (statsDict[statTarget]) {
         statLoc = statsDict[statTarget];
     } else {
-        const fallbackName = pascalToSpaced(statTarget);
+        let fallbackName = pascalToSpaced(statTarget).trim();
+        fallbackName = fallbackName.replace(/Stat - Implicit - /ig, '');
+        if (fallbackName.includes('Skill Definition') || fallbackName.includes('Definition')) {
+            fallbackName = fallbackName.replace(/Skill Definition/ig, '').replace(/Definition/ig, '').trim() + ' Skill Level';
+        }
+        if (fallbackName.startsWith('TNF:(') && fallbackName.endsWith(')')) {
+            fallbackName = fallbackName.substring(5, fallbackName.length - 1);
+        }
         statLoc = { 'en': fallbackName }; 
     }
     
@@ -119,41 +173,7 @@ for (const affix of relicAffixes) {
     };
 }
 
-const sizesData = {};
-const processedSizes = new Set();
-
-for (const relic of relics) {
-    if (!relic.eRelicSize || processedSizes.has(relic.eRelicSize)) continue;
-    if (relic.type !== 'RelicBaseDefinition') continue;
-    
-    processedSizes.add(relic.eRelicSize);
-
-    const sizeData = {
-        primaryPool: {},
-        secondaryPool: {}
-    };
-
-    let totalPrimaryWeight = 0;
-    if (relic.primaryAffixPool) {
-        for (const entry of relic.primaryAffixPool) {
-            totalPrimaryWeight += entry.weight;
-        }
-        for (const entry of relic.primaryAffixPool) {
-            sizeData.primaryPool[entry.value.name] = { weight: entry.weight, chance: (entry.weight / totalPrimaryWeight) * 100 };
-        }
-    }
-
-    let totalSecondaryWeight = 0;
-    if (relic.secondaryAffixPool) {
-        for (const entry of relic.secondaryAffixPool) {
-            totalSecondaryWeight += entry.weight;
-        }
-        for (const entry of relic.secondaryAffixPool) {
-            sizeData.secondaryPool[entry.value.name] = { weight: entry.weight, chance: (entry.weight / totalSecondaryWeight) * 100 };
-        }
-    }
-    sizesData[relic.eRelicSize] = sizeData;
-}
+    // Removed sizes parsing loop since it's now at the top of the script
 
 const finalData = {
     affixes: extractedAffixes,

@@ -1,5 +1,15 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronUp, ChevronDown, SearchX, Star } from 'lucide-react';
 
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+  useEffect(() => {
+    const handler = setTimeout(() => setDebouncedValue(value), delay);
+    return () => clearTimeout(handler);
+  }, [value, delay]);
+  return debouncedValue;
+}
 interface TierData { min: number; max: number; }
 interface AffixData {
   internalId: number;
@@ -71,7 +81,8 @@ const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     sortByCorrupted: 'Corrupted',
     sortByFaith: 'Faith Imbued',
     sortByFury: 'Fury Imbued',
-    sortByDiscipline: 'Discipline Imbued'
+    sortByDiscipline: 'Discipline Imbued',
+    favoritesOnly: 'Favorites Only'
   },
   'pt-br': {
     title: 'Hell Clock Craft',
@@ -95,7 +106,8 @@ const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     rareAffixes: 'Afixos Raros',
     prefixes: 'Prefixos',
     suffixes: 'Sufixos',
-    roll: 'Valor:'
+    roll: 'Valor:',
+    favoritesOnly: 'Apenas Favoritos'
   },
   'es': {
     title: 'Hell Clock Craft',
@@ -119,7 +131,8 @@ const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     rareAffixes: 'Afijos Raros',
     prefixes: 'Prefijos',
     suffixes: 'Sufijos',
-    roll: 'Valor:'
+    roll: 'Valor:',
+    favoritesOnly: 'Solo Favoritos'
   },
   'de': {
     tabSimulator: 'Crafting-Pools',
@@ -138,7 +151,8 @@ const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     rareAffixes: 'Seltene Affixe',
     prefixes: 'Präfixe',
     suffixes: 'Suffixe',
-    roll: 'Wert:'
+    roll: 'Wert:',
+    favoritesOnly: 'Nur Favoriten'
   }
 };
 
@@ -178,13 +192,45 @@ const formatListDescription = (desc: string, min: number, max: number, statName:
 
 export default function App() {
   const [data, setData] = useState<AppData | null>(null);
-  const [activeTab, setActiveTab] = useState<'Simulator' | 'Database'>('Simulator');
   
-  const [size, setSize] = useState<string>('Exalted');
-  const [tier, setTier] = useState<string>('4');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [lang, setLang] = useState<string>('en');
-  const [sortBy, setSortBy] = useState<string>('NameAZ');
+  const searchParams = new URLSearchParams(window.location.search);
+  const [activeTab, setActiveTab] = useState<'Simulator' | 'Database'>((searchParams.get('tab') as 'Simulator' | 'Database') || 'Simulator');
+  const [size, setSize] = useState<string>(searchParams.get('size') || 'Exalted');
+  const [tier, setTier] = useState<string>(searchParams.get('tier') || '4');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
+  const debouncedSearchQuery = useDebounce(searchQuery, 150);
+  const [lang, setLang] = useState<string>(searchParams.get('lang') || 'en');
+  const [sortBy, setSortBy] = useState<string>(searchParams.get('sort') || 'NameAZ');
+  
+  const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({});
+  const [favorites, setFavorites] = useState<string[]>(() => {
+    try { 
+      const parsed = JSON.parse(localStorage.getItem('hcc_favorites') || '[]'); 
+      return Array.isArray(parsed) ? parsed : [];
+    } catch { return []; }
+  });
+  const [showFavorites, setShowFavorites] = useState(false);
+
+  const toggleFavorite = (internalName: string) => {
+    setFavorites(prev => {
+      const next = prev.includes(internalName) ? prev.filter(n => n !== internalName) : [...prev, internalName];
+      localStorage.setItem('hcc_favorites', JSON.stringify(next));
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (activeTab !== 'Simulator') params.set('tab', activeTab);
+    if (lang !== 'en') params.set('lang', lang);
+    if (tier !== '4') params.set('tier', tier);
+    if (size !== 'Exalted') params.set('size', size);
+    if (searchQuery) params.set('q', searchQuery);
+    if (sortBy !== 'NameAZ') params.set('sort', sortBy);
+    
+    const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+    window.history.replaceState({}, '', newUrl);
+  }, [activeTab, lang, tier, size, searchQuery, sortBy]);
 
   useEffect(() => {
     fetch('./assets/data.json')
@@ -193,25 +239,46 @@ export default function App() {
       .catch(err => console.error('Error loading data:', err));
   }, []);
 
+  // Common Search Filter Logic
+  const matchesSearchLang = (a: AffixData, checkLang: string, q: string) => {
+    const lName = (a.nameLocalizations[checkLang] || '').toLowerCase();
+    const lDesc = (a.descLocalizations[checkLang] || '').toLowerCase();
+    const lStat = (a.statLocalizations[checkLang] || '').toLowerCase();
+    return lName.includes(q) || lDesc.includes(q) || lStat.includes(q);
+  };
+
+  const matchesSearch = (a: AffixData) => {
+    if (!debouncedSearchQuery) return true;
+    return matchesSearchLang(a, lang, debouncedSearchQuery.toLowerCase());
+  };
+
+  useEffect(() => {
+    if (!debouncedSearchQuery || !data) return;
+    const q = debouncedSearchQuery.toLowerCase();
+    
+    // 1. Check if current language has a match
+    const currentMatches = Object.values(data.affixes).some(a => matchesSearchLang(a, lang, q));
+    if (currentMatches) return; // All good
+
+    // 2. If not, check other languages
+    for (const l of LANGUAGES.map(x => x.code)) {
+      if (l === lang) continue;
+      const otherMatches = Object.values(data.affixes).some(a => matchesSearchLang(a, l, q));
+      if (otherMatches) {
+        setLang(l);
+        break;
+      }
+    }
+  }, [debouncedSearchQuery, data, lang]);
+
   if (!data) return <div style={{color: 'white', padding: '2rem'}}>Loading Database...</div>;
 
   const sizesAvailable = Object.keys(data.sizes);
   const currentSizeData = data.sizes[size];
-
-  // Common Search Filter Logic
-  const matchesSearch = (a: AffixData) => {
-    if (!searchQuery) return true;
-    const q = searchQuery.toLowerCase();
-    const lName = (a.nameLocalizations[lang] || '').toLowerCase();
-    const lDesc = (a.descLocalizations[lang] || '').toLowerCase();
-    const lStat = (a.statLocalizations[lang] || '').toLowerCase();
-    return lName.includes(q) || lDesc.includes(q) || lStat.includes(q);
-  };
-
   const allValidAffixes = Object.values(data.affixes).filter(a => a.rarity !== 'Unique');
 
   const buildList = (pool: Record<string, PoolEntry>) => {
-    return Object.entries(pool)
+    let list = Object.entries(pool)
       .map(([affixId, poolEntry]) => {
         const affixDef = data.affixes[affixId];
         if (!affixDef || affixDef.rarity === 'Unique' || affixDef.blockedSizes.includes(size)) return null;
@@ -219,6 +286,8 @@ export default function App() {
         return { affixDef, chance: poolEntry.chance };
       })
       .filter(Boolean) as { affixDef: AffixData, chance: number }[];
+    if (showFavorites) return list.filter(item => favorites.includes(item.affixDef.internalName));
+    return list;
   };
 
   const primaryAffixesList = buildList(currentSizeData?.primaryPool || {});
@@ -229,6 +298,7 @@ export default function App() {
   
   const rareAffixesList = specialAffixes
     .filter(a => matchesSearch(a))
+    .filter(a => showFavorites ? favorites.includes(a.internalName) : true)
     .map(affixDef => ({ 
       affixDef, 
       chance: rareChance 
@@ -239,7 +309,7 @@ export default function App() {
     const min = tierStats ? tierStats.min : 0;
     const max = tierStats ? tierStats.max : 0;
     
-    const baseLocalName = affixDef.nameLocalizations[lang] || affixDef.nameLocalizations['en'] || 'Unknown';
+    const baseLocalName = affixDef.nameLocalizations[lang] || affixDef.nameLocalizations['en'] || affixDef.statLocalizations[lang] || affixDef.statLocalizations['en'] || 'Unknown';
     const localName = affixDef.skillName ? affixDef.skillName : baseLocalName;
     const localDesc = affixDef.descLocalizations[lang] || affixDef.descLocalizations['en'] || '';
     const localStat = affixDef.statLocalizations[lang] || affixDef.statLocalizations['en'] || '';
@@ -248,19 +318,35 @@ export default function App() {
     let rarityClass = `rarity-${affixDef.rarity.toLowerCase()}`;
     
     if (affixDef.implicitCategory) {
-      displayRarity += ` - ${affixDef.implicitCategory.replace('Imbued', ' Imbued')}`;
-      rarityClass += ` rarity-${affixDef.implicitCategory.toLowerCase()}`;
+      displayRarity = `Implicit - ${affixDef.implicitCategory.replace('Imbued', ' Imbued')}`;
+      rarityClass = `rarity-${affixDef.implicitCategory.toLowerCase()}`;
     }
 
     const hoverClass = affixDef.rarity === 'Special' ? 'special-hover' : 'common-hover';
-    
+    const itemSpecialClass = affixDef.rarity === 'Special' ? 'item-special' : '';
+
+
     const craftableSizes = ALL_SIZES.filter(s => !affixDef.blockedSizes.includes(s));
     const locationsText = craftableSizes.length === ALL_SIZES.length ? t('allSizes', lang) : craftableSizes.join(', ');
 
     return (
-      <div key={affixDef.internalName} className={`affix-item ${hoverClass}`}>
+      <motion.div 
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.1 } }}
+        transition={{ duration: 0.15 }}
+        key={affixDef.internalName} 
+        className={`affix-item ${hoverClass} ${itemSpecialClass} ${affixDef.implicitCategory ? 'rarity-' + affixDef.implicitCategory.toLowerCase() : ''}`}
+      >
         <div className="affix-info">
-          <div className="affix-name">
+          <div className="affix-name" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <button 
+              className={`favorite-btn ${favorites.includes(affixDef.internalName) ? 'active' : ''}`}
+              onClick={(e) => { e.stopPropagation(); toggleFavorite(affixDef.internalName); }}
+              title="Toggle Favorite"
+            >
+              <Star size={18} fill={favorites.includes(affixDef.internalName) ? "currentColor" : "none"} />
+            </button>
             {localName} 
             <span className={`affix-rarity ${rarityClass}`}>{displayRarity}</span>
           </div>
@@ -278,26 +364,62 @@ export default function App() {
         <div className="affix-stats">
           {chance !== undefined && chance > 0 && <div className="affix-chance">{chance.toFixed(2)}% {t('chance', lang)}</div>}
         </div>
-      </div>
+      </motion.div>
     );
   };
 
   const renderAffixGroup = (title: string, list: { affixDef: AffixData, chance: number }[]) => {
-    if (list.length === 0 && searchQuery) return null;
+    if (list.length === 0 && debouncedSearchQuery) return null;
     if (list.length === 0) return null;
     list.sort((a, b) => b.chance - a.chance);
 
+    const isCollapsed = collapsedSections[title] || false;
+    const toggleSection = () => setCollapsedSections(prev => ({...prev, [title]: !prev[title]}));
+
     return (
-      <div style={{marginBottom: '3rem'}}>
-        <h3 className="affix-group-title">{title}</h3>
-        <div className="affix-list">
-          {list.map(({ affixDef, chance }) => renderAffixItem(affixDef, chance))}
-        </div>
+      <div style={{marginBottom: '3rem'}} key={title}>
+        <h3 className="affix-group-title" onClick={toggleSection} style={{cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+          <span>{title}</span>
+          <span style={{ color: 'var(--text-muted)' }}>
+            {isCollapsed ? <ChevronDown size={24} /> : <ChevronUp size={24} />}
+          </span>
+        </h3>
+        <AnimatePresence>
+          {!isCollapsed && (
+            <motion.div 
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              style={{ overflow: 'hidden' }}
+            >
+              <div className="affix-list" style={{ paddingTop: '1rem' }}>
+                <AnimatePresence>
+                  {list.map(({ affixDef, chance }) => renderAffixItem(affixDef, chance))}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     );
   };
 
+  const EmptyState = () => (
+    <motion.div 
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '4rem 2rem', color: 'var(--text-muted)', gap: '1rem' }}
+    >
+      <SearchX size={64} style={{ opacity: 0.5, marginBottom: '1rem' }} />
+      <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--text-main)' }}>{t('noResults', lang)}</h3>
+      <p style={{ textAlign: 'center', maxWidth: '400px' }}>Try adjusting your search query, tier, or size filters to find what you're looking for.</p>
+    </motion.div>
+  );
+
   let filteredAffixes = allValidAffixes.filter(a => matchesSearch(a));
+  if (showFavorites) {
+    filteredAffixes = filteredAffixes.filter(a => favorites.includes(a.internalName));
+  }
   
   filteredAffixes.sort((a, b) => {
     const nameA = a.nameLocalizations[lang] || a.nameLocalizations['en'] || '';
@@ -386,6 +508,17 @@ export default function App() {
           </div>
         )}
 
+        <div className="control-group">
+          <label style={{ visibility: 'hidden' }}>Filter</label>
+          <button 
+            className={`filter-btn ${showFavorites ? 'active' : ''}`}
+            onClick={() => setShowFavorites(!showFavorites)}
+          >
+            <Star size={18} fill={showFavorites ? "currentColor" : "none"} />
+            {t('favoritesOnly', lang)}
+          </button>
+        </div>
+
         <div className="control-group" style={{marginLeft: 'auto'}}>
           <label>{t('searchLabel', lang)}</label>
           <input 
@@ -406,14 +539,16 @@ export default function App() {
               {renderAffixGroup(t('prefixes', lang), primaryAffixesList)}
               {renderAffixGroup(t('suffixes', lang), secondaryAffixesList)}
               {rareAffixesList.length === 0 && primaryAffixesList.length === 0 && secondaryAffixesList.length === 0 && (
-                <div style={{color: 'var(--text-muted)'}}>{t('noResults', lang)}</div>
+                <EmptyState />
               )}
             </div>
           ) : (
             <div className="db-content">
               <div className="affix-list">
-                {filteredAffixes.map(affixDef => renderAffixItem(affixDef))}
-                {filteredAffixes.length === 0 && <div style={{color: 'var(--text-muted)'}}>{t('noResults', lang)}</div>}
+                <AnimatePresence mode="popLayout">
+                  {filteredAffixes.map(affixDef => renderAffixItem(affixDef))}
+                </AnimatePresence>
+                {filteredAffixes.length === 0 && <EmptyState />}
               </div>
             </div>
           )}
