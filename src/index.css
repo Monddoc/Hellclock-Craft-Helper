@@ -418,6 +418,36 @@ button {
     align-items: flex-start;
   }
 }
+
+@media (max-width: 600px) {
+  .global-controls {
+    width: 100%;
+    justify-content: stretch;
+  }
+  .global-controls .control-group {
+    width: 100%;
+  }
+  .global-controls select {
+    width: 100%;
+  }
+  .tabs {
+    width: 100%;
+    justify-content: stretch;
+  }
+  .tab-button {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .control-group {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
 .favorite-btn {
   background: transparent;
   border: none;
@@ -549,4 +579,28 @@ button {
   border-color: #34d399; 
   background: rgba(52, 211, 153, 0.15); 
   box-shadow: 0 4px 12px rgba(52, 211, 153, 0.25), inset 0 0 10px rgba(52, 211, 153, 0.1); 
+}
+
+.scroll-top-btn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  color: #111;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+  z-index: 50;
+  transition: all 0.2s;
+}
+
+.scroll-top-btn:hover {
+  background: #fcd34d;
+  transform: translateY(-2px);
 }
