@@ -1,14 +1,40 @@
 export interface TierData { min: number; max: number; }
 
+export type ValueFormat = 'percent' | 'mult' | 'multAdd' | 'decPercent' | 'rounded' | 'int' | 'default';
+
+export type Placeholder =
+  | { kind: 'roll' }
+  | { kind: 'text'; loc: Record<string, string> }
+  | { kind: 'value'; value: number; format: ValueFormat }
+  | { kind: 'extras' };
+
+export interface ExtraStat {
+  statLoc: Record<string, string>;
+  factor: number;
+  applyRoll: boolean;
+  format: ValueFormat;
+}
+
+export interface UpgradeConfig {
+  type: 'Additive' | 'Multiplicative' | 'MultiplicativeAdditive';
+  levels: Record<string, number>;
+}
+
 export interface AffixData {
   internalId: number;
   internalName: string;
   nameLocalizations: Record<string, string>;
   descLocalizations: Record<string, string>;
   statLocalizations: Record<string, string>;
+  searchLocalizations?: Record<string, string>;
   rarity: string;
   implicitCategory?: string;
-  skillName?: string;
+  implicitCategories?: string[];
+  placeholders: Placeholder[];
+  rollFormat: ValueFormat;
+  rollPrefix: string;
+  extras?: ExtraStat[] | null;
+  upgrade?: UpgradeConfig;
   blockedSizes: string[];
   tiers: Record<string, TierData>;
 }
@@ -21,15 +47,20 @@ export interface PoolEntry {
 export interface SizeData {
   primaryPool: Record<string, PoolEntry>;
   secondaryPool: Record<string, PoolEntry>;
-  implicits: Record<string, number>;
+  implicitPools: Record<string, Record<string, PoolEntry>>;
 }
 
 export interface AppData {
   affixes: Record<string, AffixData>;
   sizes: Record<string, SizeData>;
+  maxUpgradeLevel: number;
+  statLineTemplates: Record<string, string>;
 }
 
 export const ALL_SIZES = ['Small', 'Large', 'Grand', 'Exalted'];
+
+// Relic size filter value that lists the affixes of every size
+export const ANY_SIZE = 'Any';
 
 export const LANGUAGES = [
   { code: 'en', label: 'English' },
@@ -46,9 +77,11 @@ export const LANGUAGES = [
 
 export const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
   'en': {
+    anySize: 'Any Size',
+    affixType: 'Affix Type',
+    searchHint: 'Type in any supported language, it switches automatically',
+    upgradeLevel: 'Upgrade Level',
     title: 'Hell Clock Craft',
-    tabSimulator: 'Crafting Pools',
-    tabDatabase: 'All Affixes',
     language: 'Language',
     tierRolls: 'Tier Rolls',
     tier: 'Tier',
@@ -76,9 +109,11 @@ export const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     favoritesOnly: 'Favorites Only'
   },
   'pt-br': {
+    anySize: 'Qualquer Tamanho',
+    affixType: 'Tipo de Afixo',
+    searchHint: 'Digite em qualquer idioma suportado, ele muda automaticamente',
+    upgradeLevel: 'Nível de Melhoria',
     title: 'Hell Clock Craft',
-    tabSimulator: 'Simulador',
-    tabDatabase: 'Todos os Afixos',
     language: 'Idioma',
     tierRolls: 'Grau do Afixo',
     tier: 'Grau',
@@ -102,9 +137,11 @@ export const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     favoritesOnly: 'Apenas Favoritos'
   },
   'es': {
+    anySize: 'Cualquier Tamaño',
+    affixType: 'Tipo de Afijo',
+    searchHint: 'Escribe en cualquier idioma compatible, cambia automáticamente',
+    upgradeLevel: 'Nivel de Mejora',
     title: 'Hell Clock Craft',
-    tabSimulator: 'Simulador',
-    tabDatabase: 'Todos los Afijos',
     language: 'Idioma',
     tierRolls: 'Nivel de Afijo',
     tier: 'Nivel',
@@ -128,8 +165,10 @@ export const UI_TRANSLATIONS: Record<string, Record<string, string>> = {
     favoritesOnly: 'Solo Favoritos'
   },
   'de': {
-    tabSimulator: 'Crafting-Pools',
-    tabDatabase: 'Alle Affixe',
+    anySize: 'Jede Größe',
+    affixType: 'Affix-Typ',
+    searchHint: 'In jeder unterstützten Sprache eingeben, sie wechselt automatisch',
+    upgradeLevel: 'Aufwertungsstufe',
     language: 'Sprache',
     tierRolls: 'Tier-Rollen',
     tier: 'Tier',

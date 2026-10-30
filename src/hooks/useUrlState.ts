@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDebounce } from './useDebounce';
+import { ANY_SIZE } from '../types';
 
 const parseUrlCategory = (urlCat: string | null) => {
   if (!urlCat) return null;
@@ -16,9 +17,10 @@ const parseUrlCategory = (urlCat: string | null) => {
 export function useUrlState() {
   const searchParams = new URLSearchParams(window.location.search);
   
-  const [activeTab, setActiveTab] = useState<'Simulator' | 'Database'>((searchParams.get('tab') as 'Simulator' | 'Database') || 'Simulator');
-  const [size, setSize] = useState<string>(searchParams.get('size') || 'Exalted');
+  // Old links to the removed "All Affixes" tab (?tab=Database) open the "Any" relic size instead
+  const [size, setSize] = useState<string>(searchParams.get('size') || (searchParams.get('tab') === 'Database' ? ANY_SIZE : 'Exalted'));
   const [tier, setTier] = useState<string>(searchParams.get('tier') || '4');
+  const [upgradeLevel, setUpgradeLevel] = useState<number>(Number(searchParams.get('upgrade')) || 0);
   const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
   const debouncedSearchQuery = useDebounce(searchQuery, 150);
   const [lang, setLang] = useState<string>(searchParams.get('lang') || 'en');
@@ -26,28 +28,24 @@ export function useUrlState() {
   
   useEffect(() => {
     const params = new URLSearchParams();
-    if (activeTab !== 'Simulator') params.set('tab', activeTab);
     if (lang !== 'en') params.set('lang', lang);
     if (searchQuery) params.set('q', searchQuery);
-    
-    if (activeTab === 'Simulator') {
-      if (tier !== '4') params.set('tier', tier);
-      if (size !== 'Exalted') params.set('size', size);
-    } else if (activeTab === 'Database') {
-      if (activeCategory) {
-        const urlCat = activeCategory === 'Special' ? 'rare' : activeCategory.toLowerCase();
-        params.set('category', urlCat);
-      }
+    if (upgradeLevel !== 0) params.set('upgrade', String(upgradeLevel));
+    if (tier !== '4') params.set('tier', tier);
+    if (size !== 'Exalted') params.set('size', size);
+    if (activeCategory) {
+      const urlCat = activeCategory === 'Special' ? 'rare' : activeCategory.toLowerCase();
+      params.set('category', urlCat);
     }
-    
+
     const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
     window.history.replaceState({}, '', newUrl);
-  }, [activeTab, lang, tier, size, searchQuery, activeCategory]);
+  }, [lang, tier, upgradeLevel, size, searchQuery, activeCategory]);
 
   return {
-    activeTab, setActiveTab,
     size, setSize,
     tier, setTier,
+    upgradeLevel, setUpgradeLevel,
     searchQuery, setSearchQuery,
     debouncedSearchQuery,
     lang, setLang,

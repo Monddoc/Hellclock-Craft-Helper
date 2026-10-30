@@ -3,43 +3,46 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import type { AffixData } from '../types';
 import { ALL_SIZES } from '../types';
-import { t, formatListDescription } from '../utils';
+import { t, formatAffixDescription } from '../utils';
 
 interface AffixItemProps {
   affixDef: AffixData;
   chance?: number;
+  // Relic sizes the affix rolls on, shown when listing every size
+  sizes?: string[];
+  category?: string;
   tier: string;
+  upgradeLevel: number;
+  statLineTemplates: Record<string, string>;
   lang: string;
-  activeTab: 'Simulator' | 'Database';
   isFavorite: boolean;
   toggleFavorite: (internalName: string) => void;
 }
 
 export const AffixItem: React.FC<AffixItemProps> = ({
-  affixDef, chance, tier, lang, activeTab, isFavorite, toggleFavorite
+  affixDef, chance, sizes, category, tier, upgradeLevel, statLineTemplates, lang, isFavorite, toggleFavorite
 }) => {
+  // The badge shows the pool being listed
+  const categories = category ? [category] : [];
+  const mainCategory = categories[0];
   const tierStats = affixDef.tiers[tier];
   const min = tierStats ? tierStats.min : 0;
   const max = tierStats ? tierStats.max : 0;
   
-  const baseLocalName = affixDef.nameLocalizations[lang] || affixDef.nameLocalizations['en'] || affixDef.statLocalizations[lang] || affixDef.statLocalizations['en'] || 'Unknown';
-  const localName = affixDef.skillName ? affixDef.skillName : baseLocalName;
-  const localDesc = affixDef.descLocalizations[lang] || affixDef.descLocalizations['en'] || '';
-  const localStat = affixDef.statLocalizations[lang] || affixDef.statLocalizations['en'] || '';
-  
+  const localName = affixDef.nameLocalizations[lang] || affixDef.nameLocalizations['en'] || affixDef.statLocalizations[lang] || affixDef.statLocalizations['en'] || 'Unknown';
+
   let displayRarity = affixDef.rarity === 'Special' ? 'Rare' : affixDef.rarity;
   let rarityClass = `rarity-${affixDef.rarity.toLowerCase()}`;
   
-  if (affixDef.implicitCategory) {
-    displayRarity = `Implicit - ${affixDef.implicitCategory.replace('Imbued', ' Imbued')}`;
-    rarityClass = `rarity-${affixDef.implicitCategory.toLowerCase()}`;
+  if (mainCategory) {
+    displayRarity = `Implicit - ${categories.map(c => c.replace('Imbued', ' Imbued')).join(' / ')}`;
+    rarityClass = `rarity-${mainCategory.toLowerCase()}`;
   }
 
   const hoverClass = affixDef.rarity === 'Special' ? 'special-hover' : 'common-hover';
   const itemSpecialClass = affixDef.rarity === 'Special' ? 'item-special' : '';
 
-  const craftableSizes = ALL_SIZES.filter(s => !affixDef.blockedSizes.includes(s));
-  const locationsText = craftableSizes.length === ALL_SIZES.length ? t('allSizes', lang) : craftableSizes.join(', ');
+  const locationsText = sizes && (sizes.length === ALL_SIZES.length ? t('allSizes', lang) : sizes.join(', '));
 
   return (
     <motion.div 
@@ -47,7 +50,7 @@ export const AffixItem: React.FC<AffixItemProps> = ({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.1 } }}
       transition={{ duration: 0.15 }}
-      className={`affix-item ${hoverClass} ${itemSpecialClass} ${affixDef.implicitCategory ? 'rarity-' + affixDef.implicitCategory.toLowerCase() : ''}`}
+      className={`affix-item ${hoverClass} ${itemSpecialClass} ${mainCategory ? 'rarity-' + mainCategory.toLowerCase() : ''}`}
     >
       <div className="affix-info">
         <div className="affix-name" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -63,12 +66,12 @@ export const AffixItem: React.FC<AffixItemProps> = ({
         </div>
         {tierStats ? (
           <div className="affix-desc">
-            {formatListDescription(localDesc, min, max, localStat, t('roll', lang))}
+            {formatAffixDescription(affixDef, lang, min, max, upgradeLevel, statLineTemplates)}
           </div>
         ) : (
           <div className="affix-desc" style={{ color: '#ef4444' }}>{t('noRolls', lang)}</div>
         )}
-        {activeTab === 'Database' && (
+        {locationsText && (
           <div className="affix-locations">
             {t('craftableOn', lang)} <strong>{locationsText}</strong>
           </div>

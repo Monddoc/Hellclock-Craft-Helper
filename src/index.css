@@ -124,7 +124,7 @@ button {
   padding: 1.25rem 2rem;
   border-radius: 16px;
   border: 1px solid var(--border-color);
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
   backdrop-filter: blur(12px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
@@ -144,11 +144,34 @@ button {
   font-weight: 700;
 }
 
+.search-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.search-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  color: rgba(251, 191, 36, 0.85);
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 500;
+}
+
 .control-group select, .search-bar {
   background-color: rgba(0, 0, 0, 0.2);
   color: var(--text-main);
   border: 1px solid var(--border-color);
-  padding: 0.75rem 1.25rem;
+  height: 42px;
+  padding: 0 1.25rem;
   border-radius: 8px;
   font-size: 0.95rem;
   outline: none;

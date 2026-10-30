@@ -1,14 +1,17 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import { t } from '../utils';
+import { ANY_SIZE } from '../types';
 
 interface ControlsBarProps {
   tier: string;
   setTier: (tier: string) => void;
+  upgradeLevel: number;
+  setUpgradeLevel: (level: number) => void;
+  maxUpgradeLevel: number;
   size: string;
   setSize: (size: string) => void;
   sizesAvailable: string[];
-  activeTab: 'Simulator' | 'Database';
   activeCategory: string | null;
   setActiveCategory: (cat: string | null) => void;
   showFavorites: boolean;
@@ -20,7 +23,7 @@ interface ControlsBarProps {
 }
 
 export const ControlsBar: React.FC<ControlsBarProps> = ({
-  tier, setTier, size, setSize, sizesAvailable, activeTab,
+  tier, setTier, upgradeLevel, setUpgradeLevel, maxUpgradeLevel, size, setSize, sizesAvailable,
   activeCategory, setActiveCategory, showFavorites, setShowFavorites, lang, searchBarNode,
   isGlobalCollapsed, onToggleCollapseAll
 }) => {
@@ -35,26 +38,34 @@ export const ControlsBar: React.FC<ControlsBarProps> = ({
           <option value="4">{t('tier', lang)} 4</option>
         </select>
       </div>
-      
-      {activeTab === 'Simulator' && (
-        <div className="control-group">
-          <label>{t('relicSize', lang)}</label>
-          <select value={size} onChange={(e) => setSize(e.target.value)}>
-            {sizesAvailable.map(s => {
-              const labels: Record<string, string> = {
-                Small: 'Small (1x1)',
-                Large: 'Large (2x1)',
-                Grand: 'Grand (2x2)',
-                Exalted: 'Exalted (4x1)'
-              };
-              return <option key={s} value={s}>{labels[s] || s}</option>
-            })}
-          </select>
-        </div>
-      )}
-      
+
       <div className="control-group">
-        <label style={{ visibility: 'hidden' }}>Icons</label>
+        <label>{t('upgradeLevel', lang)}</label>
+        <select value={upgradeLevel} onChange={(e) => setUpgradeLevel(Number(e.target.value))} style={{ minWidth: '90px' }}>
+          {Array.from({ length: maxUpgradeLevel + 1 }, (_, level) => (
+            <option key={level} value={level}>+{level}</option>
+          ))}
+        </select>
+      </div>
+
+      <div className="control-group">
+        <label>{t('relicSize', lang)}</label>
+        <select value={size} onChange={(e) => setSize(e.target.value)}>
+          <option value={ANY_SIZE}>{t('anySize', lang)}</option>
+          {sizesAvailable.map(s => {
+            const labels: Record<string, string> = {
+              Small: 'Small (1x1)',
+              Large: 'Large (2x1)',
+              Grand: 'Grand (2x2)',
+              Exalted: 'Exalted (4x1)'
+            };
+            return <option key={s} value={s}>{labels[s] || s}</option>
+          })}
+        </select>
+      </div>
+
+      <div className="control-group">
+        <label>{t('affixType', lang)}</label>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
           <button className={`icon-filter-btn ${activeCategory === 'Common' ? 'active common' : ''}`} onClick={() => setActiveCategory(activeCategory === 'Common' ? null : 'Common')} title={t('commonAffixes', lang)}>
             <img src="./assets/icons/IconTool_Tinkering.png" alt="Common" />
@@ -77,6 +88,8 @@ export const ControlsBar: React.FC<ControlsBarProps> = ({
         </div>
       </div>
 
+      {searchBarNode}
+
       <div className="control-group">
         <label style={{ visibility: 'hidden' }}>Filter</label>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem' }}>
@@ -88,7 +101,7 @@ export const ControlsBar: React.FC<ControlsBarProps> = ({
             <span>Favorites Only</span>
           </button>
 
-          {activeTab === 'Simulator' && onToggleCollapseAll && (
+          {onToggleCollapseAll && (
             <button 
               className="filter-btn"
               onClick={onToggleCollapseAll}
@@ -100,8 +113,6 @@ export const ControlsBar: React.FC<ControlsBarProps> = ({
           )}
         </div>
       </div>
-
-      {searchBarNode}
     </div>
   );
 };

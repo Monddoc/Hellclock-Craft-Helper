@@ -11,13 +11,21 @@ import { ControlsBar } from './components/ControlsBar';
 import { SearchBar } from './components/SearchBar';
 import { AffixItem } from './components/AffixItem';
 import { AffixGroup } from './components/AffixGroup';
-import type { PoolEntry, AffixData } from './types';
+import { ALL_SIZES, ANY_SIZE } from './types';
+import type { PoolEntry, AffixData, SizeData } from './types';
+
+interface AffixItemEntry {
+  affixDef: AffixData;
+  chance?: number;
+  sizes?: string[];
+  category?: string;
+}
 
 export default function App() {
   const {
-    activeTab, setActiveTab,
     size, setSize,
     tier, setTier,
+    upgradeLevel, setUpgradeLevel,
     searchQuery, setSearchQuery,
     debouncedSearchQuery,
     lang, setLang,
@@ -64,66 +72,63 @@ export default function App() {
     return matchesSearchLang(a, lang, debouncedSearchQuery.toLowerCase());
   };
 
-  const buildList = (pool: Record<string, PoolEntry>) => {
-    let list = Object.entries(pool)
-      .map(([affixId, poolEntry]) => {
-        const affixDef = data?.affixes[affixId];
-        if (!affixDef || affixDef.rarity === 'Unique' || affixDef.blockedSizes.includes(size)) return null;
-        if (!matchesSearch(affixDef)) return null;
-        return { affixDef, chance: poolEntry.chance };
-      })
-      .filter(Boolean) as { affixDef: AffixData, chance: number }[];
-    if (showFavorites) return list.filter(item => favorites.includes(item.affixDef.internalName));
-    return list;
+  const isAnySize = size === ANY_SIZE;
+
+  const keepItem = (affixDef: AffixData) =>
+    matchesSearch(affixDef) && (!showFavorites || favorites.includes(affixDef.internalName));
+
+  const byName = (a: AffixItemEntry, b: AffixItemEntry) => {
+    const nameA = a.affixDef.nameLocalizations[lang] || a.affixDef.nameLocalizations['en'] || '';
+    const nameB = b.affixDef.nameLocalizations[lang] || b.affixDef.nameLocalizations['en'] || '';
+    return nameA.localeCompare(nameB);
   };
 
-  const primaryAffixesList = useMemo(() => buildList(currentSizeData?.primaryPool || {}), [currentSizeData, size, debouncedSearchQuery, showFavorites, favorites, lang]);
-  const secondaryAffixesList = useMemo(() => buildList(currentSizeData?.secondaryPool || {}), [currentSizeData, size, debouncedSearchQuery, showFavorites, favorites, lang]);
-
-  const specialAffixes = useMemo(() => allValidAffixes.filter(a => a.rarity === 'Special' && !a.blockedSizes.includes(size)), [allValidAffixes, size]);
-  const rareChance = specialAffixes.length > 0 ? (100 / specialAffixes.length) : 0;
-  
-  const rareAffixesList = useMemo(() => specialAffixes
-    .filter(a => matchesSearch(a))
-    .filter(a => showFavorites ? favorites.includes(a.internalName) : true)
-    .map(affixDef => ({ 
-      affixDef, 
-      chance: rareChance 
-    })), [specialAffixes, debouncedSearchQuery, showFavorites, favorites, rareChance, lang]);
-
-  const buildImplicitList = (category: string) => {
-    return allValidAffixes
-      .filter(a => a.implicitCategory === category && !a.blockedSizes.includes(size))
-      .filter(a => matchesSearch(a))
-      .filter(a => showFavorites ? favorites.includes(a.internalName) : true)
-      .map(affixDef => ({ affixDef }));
+  // With a specific size: the affixes of that size's pool with their chance.
+  // With "Any" size: every affix that is in that pool on at least one size, with the sizes it rolls on.
+  const buildList = (getPool: (sizeData: SizeData) => Record<string, PoolEntry> | undefined, category?: string): AffixItemEntry[] => {
+    if (!data) return [];
+    if (!isAnySize) {
+      const pool = (currentSizeData && getPool(currentSizeData)) || {};
+      return Object.entries(pool)
+        .map(([affixId, poolEntry]) => ({ affixDef: data.affixes[affixId], chance: poolEntry.chance, category }))
+        .filter(item => item.affixDef && item.affixDef.rarity !== 'Unique' && !item.affixDef.blockedSizes.includes(size) && keepItem(item.affixDef));
+    }
+    const sizesByAffix: Record<string, string[]> = {};
+    for (const sizeName of ALL_SIZES) {
+      const sizeData = data.sizes[sizeName];
+      if (!sizeData) continue;
+      for (const affixId of Object.keys(getPool(sizeData) || {})) {
+        if (data.affixes[affixId]?.blockedSizes.includes(sizeName)) continue;
+        (sizesByAffix[affixId] ??= []).push(sizeName);
+      }
+    }
+    return Object.entries(sizesByAffix)
+      .map(([affixId, sizes]) => ({ affixDef: data.affixes[affixId], sizes, category }))
+      .filter(item => item.affixDef && item.affixDef.rarity !== 'Unique' && keepItem(item.affixDef))
+      .sort(byName);
   };
 
-  const furyList = useMemo(() => buildImplicitList('FuryImbued'), [allValidAffixes, size, debouncedSearchQuery, showFavorites, favorites, lang]);
-  const faithList = useMemo(() => buildImplicitList('FaithImbued'), [allValidAffixes, size, debouncedSearchQuery, showFavorites, favorites, lang]);
-  const disciplineList = useMemo(() => buildImplicitList('DisciplineImbued'), [allValidAffixes, size, debouncedSearchQuery, showFavorites, favorites, lang]);
-  const corruptedList = useMemo(() => buildImplicitList('Corrupted'), [allValidAffixes, size, debouncedSearchQuery, showFavorites, favorites, lang]);
+  const primaryAffixesList = useMemo(() => buildList(s => s.primaryPool), [data, currentSizeData, size, debouncedSearchQuery, showFavorites, favorites, lang]);
+  const secondaryAffixesList = useMemo(() => buildList(s => s.secondaryPool), [data, currentSizeData, size, debouncedSearchQuery, showFavorites, favorites, lang]);
 
-  const filteredAffixes = useMemo(() => {
-    let list = allValidAffixes.filter(a => matchesSearch(a));
-    if (showFavorites) {
-      list = list.filter(a => favorites.includes(a.internalName));
-    }
-    if (activeCategory === 'Special') {
-      list = list.filter(a => a.rarity === 'Special' && !a.implicitCategory);
-    } else if (activeCategory === 'Common') {
-      list = list.filter(a => a.rarity === 'Common' && !a.implicitCategory);
-    } else if (activeCategory) {
-      list = list.filter(a => a.implicitCategory === activeCategory);
-    }
-    
-    list.sort((a, b) => {
-      const nameA = a.nameLocalizations[lang] || a.nameLocalizations['en'] || '';
-      const nameB = b.nameLocalizations[lang] || b.nameLocalizations['en'] || '';
-      return nameA.localeCompare(nameB);
-    });
-    return list;
-  }, [allValidAffixes, debouncedSearchQuery, showFavorites, favorites, activeCategory, lang]);
+  // Rare affixes are picked uniformly among the ones not blocked on the relic size
+  const rareAffixesList = useMemo((): AffixItemEntry[] => {
+    const specialAffixes = allValidAffixes.filter(a => a.rarity === 'Special' && (isAnySize || !a.blockedSizes.includes(size)));
+    const rareChance = specialAffixes.length > 0 ? (100 / specialAffixes.length) : 0;
+    const list = specialAffixes
+      .filter(keepItem)
+      .map(affixDef => isAnySize
+        ? { affixDef, sizes: ALL_SIZES.filter(s => !affixDef.blockedSizes.includes(s)) }
+        : { affixDef, chance: rareChance });
+    return isAnySize ? list.sort(byName) : list;
+  }, [data, size, debouncedSearchQuery, showFavorites, favorites, lang]);
+
+  const buildImplicitList = (category: string) => buildList(s => s.implicitPools?.[category], category);
+
+  const furyList = useMemo(() => buildImplicitList('FuryImbued'), [data, currentSizeData, size, debouncedSearchQuery, showFavorites, favorites, lang]);
+  const faithList = useMemo(() => buildImplicitList('FaithImbued'), [data, currentSizeData, size, debouncedSearchQuery, showFavorites, favorites, lang]);
+  const disciplineList = useMemo(() => buildImplicitList('DisciplineImbued'), [data, currentSizeData, size, debouncedSearchQuery, showFavorites, favorites, lang]);
+  const corruptedList = useMemo(() => buildImplicitList('Corrupted'), [data, currentSizeData, size, debouncedSearchQuery, showFavorites, favorites, lang]);
 
   const EmptyState = () => (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '4rem 2rem', color: 'var(--text-muted)', gap: '1rem' }}>
@@ -133,14 +138,17 @@ export default function App() {
     </div>
   );
 
-  const renderItem = (item: { affixDef: AffixData, chance?: number }) => (
-    <AffixItem 
-      key={item.affixDef.internalName} 
-      affixDef={item.affixDef} 
-      chance={item.chance} 
-      tier={tier} 
-      lang={lang} 
-      activeTab={activeTab} 
+  const renderItem = (item: AffixItemEntry) => (
+    <AffixItem
+      key={item.affixDef.internalName}
+      affixDef={item.affixDef}
+      chance={item.chance}
+      sizes={item.sizes}
+      category={item.category}
+      tier={tier}
+      upgradeLevel={upgradeLevel}
+      statLineTemplates={data?.statLineTemplates || {}}
+      lang={lang}
       isFavorite={favorites.includes(item.affixDef.internalName)} 
       toggleFavorite={toggleFavorite} 
     />
@@ -160,12 +168,12 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} lang={lang} setLang={setLang} />
-      
-      <ControlsBar 
-        tier={tier} setTier={setTier} 
-        size={size} setSize={setSize} sizesAvailable={sizesAvailable} 
-        activeTab={activeTab} 
+      <Header lang={lang} setLang={setLang} />
+
+      <ControlsBar
+        tier={tier} setTier={setTier}
+        upgradeLevel={upgradeLevel} setUpgradeLevel={setUpgradeLevel} maxUpgradeLevel={data.maxUpgradeLevel ?? 5}
+        size={size} setSize={setSize} sizesAvailable={sizesAvailable}
         activeCategory={activeCategory} setActiveCategory={setActiveCategory} 
         showFavorites={showFavorites} setShowFavorites={setShowFavorites} 
         lang={lang} 
@@ -179,31 +187,20 @@ export default function App() {
 
       <div className="main-content" style={{ position: 'relative' }}>
         <div className="database-panel">
-          {activeTab === 'Simulator' ? (
-            <div className="db-content" ref={dbContentRef} onScroll={handleScroll}>
-              {simulatorGroups.map(group => group.show && (
-                <AffixGroup 
-                  key={group.title} 
-                  title={group.title} 
-                  isSearching={!!debouncedSearchQuery} 
-                  list={group.list.map(renderItem)} 
-                  globalCollapseSignal={globalCollapseSignal} 
-                  isGlobalCollapsed={isGlobalCollapsed} 
-                />
-              ))}
-              
-              {simulatorGroups.every(g => !g.show || g.list.length === 0) && <EmptyState />}
-            </div>
-          ) : (
-            <div className="db-content" ref={dbContentRef} onScroll={handleScroll}>
-              <div className="affix-list">
-                <AnimatePresence mode="popLayout">
-                  {filteredAffixes.map(a => renderItem({ affixDef: a }))}
-                </AnimatePresence>
-                {filteredAffixes.length === 0 && <EmptyState />}
-              </div>
-            </div>
-          )}
+          <div className="db-content" ref={dbContentRef} onScroll={handleScroll}>
+            {simulatorGroups.map(group => group.show && (
+              <AffixGroup
+                key={group.title}
+                title={group.title}
+                isSearching={!!debouncedSearchQuery}
+                list={group.list.map(renderItem)}
+                globalCollapseSignal={globalCollapseSignal}
+                isGlobalCollapsed={isGlobalCollapsed}
+              />
+            ))}
+
+            {simulatorGroups.every(g => !g.show || g.list.length === 0) && <EmptyState />}
+          </div>
 
           <AnimatePresence>
             {showScrollTop && (

@@ -16,7 +16,8 @@ export function useGameData(debouncedSearchQuery: string, lang: string, setLang:
     const lName = (a.nameLocalizations[checkLang] || '').toLowerCase();
     const lDesc = (a.descLocalizations[checkLang] || '').toLowerCase();
     const lStat = (a.statLocalizations[checkLang] || '').toLowerCase();
-    return lName.includes(q) || lDesc.includes(q) || lStat.includes(q);
+    const lExtra = (a.searchLocalizations?.[checkLang] || '').toLowerCase();
+    return lName.includes(q) || lDesc.includes(q) || lStat.includes(q) || lExtra.includes(q);
   };
 
   useEffect(() => {

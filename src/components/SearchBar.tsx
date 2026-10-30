@@ -1,6 +1,6 @@
 import React from 'react';
 import { t } from '../utils';
-import { X } from 'lucide-react';
+import { X, Languages } from 'lucide-react';
 
 interface SearchBarProps {
   searchQuery: string;
@@ -11,7 +11,13 @@ interface SearchBarProps {
 export const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery, lang }) => {
   return (
     <div className="control-group search-control-group" style={{ flexGrow: 1, minWidth: '250px', position: 'relative' }}>
-      <label>{t('searchLabel', lang)}</label>
+      <label className="search-label">
+        {t('searchLabel', lang)}
+        <span className="search-hint">
+          <Languages size={12} />
+          {t('searchHint', lang)}
+        </span>
+      </label>
       <div style={{ position: 'relative' }}>
         <input 
           type="text" 
